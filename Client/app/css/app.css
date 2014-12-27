@@ -1,0 +1,47 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+}
+
+/*FLOAT CLEARFIX*/
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: block;
+}
+
+.clearfix:after {
+    clear: both;
+    height: 0;
+}
+
+.ad-img-container {
+    padding: 20px;
+    background-color: limegreen;
+}
+
+.ad-img-container img {
+    max-width: 100px;
+    max-height: 100px;
+}

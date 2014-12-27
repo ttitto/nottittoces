@@ -2,10 +2,34 @@
 
     <section class="container col-md-8">
         <ul class="ads">
-            <li data-ng-repeat="ad in ads"><a href="#">{{ad.title}}</a></li>
+            <li data-ng-repeat="ad in ads" class="read-ad">
+                <div class="row">
+                    <h4 class="col-md-9">{{ad.title}}</h4>
+                    <time class="col-md-3 pull-right">{{ad.date | date:'d-MMM-yyyy'}}</time>
+                </div>
+                <div class="row">
+                    <div class="ad-img-container col-md-3 pull-left">
+                        <img src="" alt="" data-ng-src="{{ad.imageDataUrl}}"/>
+                        <img src="" alt="" data-ng-if="!ad.imageDataUrl" data-ng-src="./app/imgs/no-image.png"/>
+                    </div>
+                    <div class="col-md-9">
+                        <p class="ad-text">{{ad.text}}</p>
+
+                        <p><span class="ad-owner-name-lbl">Name:</span>{{ad.ownerName}}</p>
+
+                        <p><span class="ad-owner-email-lbl">Email:</span>
+                            <a href="mailto:{{ad.ownerEmail}}">{{ad.ownerEmail}}</a>
+                        </p>
+
+                        <p><span class="ad-owner-name-lbl">Tel.</span>{{ad.ownerPhone}}</p>
+                    </div>
+
+                </div>
         </ul>
         <div pagination></div>
     </section>
+
+    <!--TODO: export the below categories and towns filters in directives-->
     <aside class="col-md-2 pull-right">
         <div class="category-filter">
             <h3>Categories</h3>

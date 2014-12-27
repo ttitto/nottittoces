@@ -4,13 +4,7 @@
         <ul class="ads">
             <li data-ng-repeat="ad in ads"><a href="#">{{ad.title}}</a></li>
         </ul>
-        <ul class="pagination">
-            <li><a href="">«</a></li>
-            <li data-ng-repeat="i in pagesArr track by $index" data-id="{{$index + 1}}"><a href="" data-ng-click="getAdsPage($index+1)">{{$index +
-                1}}</a></li>
-
-            <li><a href="">»</a></li>
-        </ul>
+       <div pagination></div>
     </section>
     <aside class="col-md-2 pull-right">
         <div class="category-filter">

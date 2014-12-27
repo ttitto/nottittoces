@@ -4,6 +4,10 @@ adsApp.directive('pagination', [function () {
         restrict: 'A',
         templateUrl: './app/templates/directives/pagination.html',
         link: function (scope) {
+            scope.firstPage = function () {
+                scope.adsRequestParams.startPage = 1;
+                scope.getAds(scope.adsRequestParams);
+            };
             scope.prevPage = function () {
                 if (parseInt(scope.adsRequestParams.startPage) > 1) {
                     scope.adsRequestParams.startPage -= 1;
@@ -21,6 +25,11 @@ adsApp.directive('pagination', [function () {
                 scope.getAds(scope.adsRequestParams);
             };
 
+            scope.lastPage = function (length) {
+                scope.adsRequestParams.startPage = length;
+                scope.getAds(scope.adsRequestParams);
+
+            };
         }
     }
 }]);

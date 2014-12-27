@@ -15,17 +15,25 @@
         <div class="category-filter">
             <h3>Categories</h3>
             <hr/>
-            <ul class="categories-list">
-                <li data-ng-repeat="category in categories" class="category-item"><a href="#" data-id="{{category.id}}">{{category.name}}</a>
-                </li>
-            </ul>
+            <label for="all-categories">All</label>
+            <input type="radio" name="categories" id="all-categories" value="" hidden="hidden"/>
+
+            <div data-ng-repeat="category in categories" class="categories-list">
+                <label for="{{category.id}}">{{category.name}}</label>
+                <input type="radio" name="categories" id="{{category.id}}" value="{{category.name}}" hidden="hidden"/>
+            </div>
         </div>
+
         <div class="towns-filter">
             <h3>Towns</h3>
             <hr/>
-            <ul class="towns-list">
-                <li class="town-item"><a href="#">{{something}}</a></li>
-            </ul>
+            <label for="all-towns">All</label>
+            <input type="radio" name="towns" id="all-towns" value="" hidden="hidden"/>
+
+            <div data-ng-repeat="town in towns" class="towns-list">
+                <label for="{{town.id}}">{{town.name}}</label>
+                <input type="radio" name="towns" id="{{town.id}}" value="{{town.name}}" hidden="hidden"/>
+            </div>
         </div>
     </aside>
 </div>

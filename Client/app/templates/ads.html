@@ -1,14 +1,15 @@
 <div data-ng-controller="AdsController">
 
     <section class="container col-md-8">
+        <ul class="ads">
+            <li data-ng-repeat="ad in ads"><a href="#">{{ad.title}}</a></li>
+        </ul>
         <ul class="pagination">
-            <li class="disabled"><a href="#">«</a></li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">»</a></li>
+            <li><a href="">«</a></li>
+            <li data-ng-repeat="i in getNumPages track by $index" data-id="{{$index + 1}}"><a href="">{{$index +
+                1}}</a></li>
+
+            <li><a href="">»</a></li>
         </ul>
     </section>
     <aside class="col-md-2 pull-right">

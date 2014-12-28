@@ -7,11 +7,14 @@ adsApp.factory('authorization', [function () {
         var savedUser = sessionStorage.getItem('userData');
         if (savedUser) {
             return savedUser;
+        } else{
+            return false
         }
     }
 
     function setLocalUser(user) {
-        sessionStorage.setItem('userData', user);
+        var userStr = JSON.stringify(user);
+        sessionStorage.setItem('userData', userStr);
     }
 
     function isLogged() {

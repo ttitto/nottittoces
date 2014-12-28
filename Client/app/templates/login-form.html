@@ -1,0 +1,35 @@
+<form data-ng-controller="LoginController" class="form-horizontal col-md-offset-2 col-md-5" id="login-form"
+      name="loginForm">
+    <fieldset>
+        <legend>Login</legend>
+        <div class="container-fluid col-md-12 clearfix">
+            <div class="form-group col-md-12 pull-left">
+                <label for="input-username" class="control-label pull-left">Username</label>
+
+                <div>
+                    <input type="text" data-ng-model="user.username" required="required" class="form-control"
+                           id="input-username" placeholder="Username">
+                </div>
+            </div>
+            <div class="form-group pull-left col-md-12">
+                <label for="input-password" class="control-label pull-left">Password</label>
+
+                <div>
+                    <input type="password" data-ng-model="user.password" data-ng-pattern="passwordPattern"
+                           required="required" class="form-control"
+                           id="input-password" placeholder="Password">
+                </div>
+            </div>
+
+            <div class="form-group pull-left col-md-12">
+                <div>
+                    <button data-ng-click="login(user, loginForm)"
+                            data-ng-disabled="loginForm.$invalid"
+                            class="btn form-btn col-md-4">Login
+                    </button>
+                    <a href="#/register">Register here</a>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>

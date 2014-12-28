@@ -169,11 +169,11 @@ hr, legend {
 .form-group input{
     margin-top: 10px;
 }
-#register-form{
+form{
     background-color: beige;
     border-radius: 5px;
 }
-#register-form .btn{
+form .btn{
     background-color: saddlebrown;
     font-size: 1.2em;
     color: beige;

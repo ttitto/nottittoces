@@ -7,7 +7,7 @@ adsApp.factory('authorization', [function () {
         var savedUser = sessionStorage.getItem('userData');
         if (savedUser) {
             return savedUser;
-        } else{
+        } else {
             return false
         }
     }

@@ -18,7 +18,21 @@ adsApp.factory('authentication', ['$http', 'authorization', 'baseUrl', '$q',
             return d.promise;
         }
 
+        function login(user) {
+            var d = $q.defer();
+            $http.post(userServiceUrl + '/login', user)
+                .success(function (userLoginData) {
+                    d.resolve(userLoginData);
+                })
+                .error(function (loginErr) {
+                    d.reject(loginErr);
+                });
+
+            return d.promise;
+        }
+
         return{
-            register: register
+            register: register,
+            login: login
         }
     }]);

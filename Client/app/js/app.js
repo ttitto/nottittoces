@@ -4,6 +4,9 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
             .when('/', {
                 templateUrl: 'app/templates/ads.html'
             })
+            .when('/register', {
+                templateUrl: 'app/templates/register-form.html'
+            })
     }])
     .constant('baseUrl', 'http://localhost:1337/api')
     .constant('pageSize', 3);

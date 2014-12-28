@@ -67,9 +67,9 @@ a {
     max-height: 100px;
 }
 
-hr {
+hr, legend {
     margin: 5px;
-    border: burlywood solid 1px;
+    border-bottom: burlywood solid 1px;
 }
 
 .categories-filter, .towns-filter {
@@ -161,4 +161,20 @@ hr {
     font-size: 1.2em;
     color: beige;
 
+}
+
+.form-group label{
+    display: block;
+}
+.form-group input{
+    margin-top: 10px;
+}
+#register-form{
+    background-color: beige;
+    border-radius: 5px;
+}
+#register-form .btn{
+    background-color: saddlebrown;
+    font-size: 1.2em;
+    color: beige;
 }

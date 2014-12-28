@@ -1,12 +1,12 @@
 <div data-ng-controller="AdsController">
     <section class="container-fluid col-md-9">
-        <ul class="ads">
-            <li data-ng-repeat="ad in ads" class="read-ad">
-                <div class="row">
+        <ul class="ads row">
+            <li data-ng-repeat="ad in ads" class="ad read-ad col-md-12">
+                <div class="row clearfix">
                     <h4 class="col-md-9">{{ad.title}}</h4>
                     <time class="col-md-3 pull-right">{{ad.date | date:'d-MMM-yyyy'}}</time>
                 </div>
-                <div class="row">
+                <div class="row clearfix">
                     <div class="ad-img-container col-md-3 pull-left">
                         <img src="" alt="" data-ng-src="{{ad.imageDataUrl}}"/>
                         <img src="" alt="" data-ng-if="!ad.imageDataUrl" data-ng-src="./app/imgs/no-image.png"/>
@@ -14,18 +14,18 @@
                     <div class="col-md-9">
                         <p class="ad-text">{{ad.text}}</p>
 
-                        <p><span class="ad-owner-name-lbl">Name:</span>{{ad.ownerName}}</p>
+                        <p class="ad-owner-name"><span>Name:</span>{{ad.ownerName}}</p>
 
-                        <p><span class="ad-owner-email-lbl">Email:</span>
+                        <p class="ad-owner-email"><span>Email:</span>
                             <a href="mailto:{{ad.ownerEmail}}">{{ad.ownerEmail}}</a>
                         </p>
 
-                        <p><span class="ad-owner-name-lbl">Tel.</span>{{ad.ownerPhone}}</p>
+                        <p class="ad-owner-phone"><span>Tel.</span>{{ad.ownerPhone}}</p>
                     </div>
 
                 </div>
         </ul>
-        <div pagination></div>
+        <div pagination class="row"></div>
     </section>
 
     <aside class="col-md-3 pull-right filters">

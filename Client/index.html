@@ -19,10 +19,8 @@
 </div>
 
 <div class="row container-fluid">
-    <aside id="auth-nav" class="col-md-2 pull-left">
-        <p>To publish a new ad, please login!</p>
-        <a href="#/login">Login</a>
-        <a href="#/register">Register</a>
+    <aside class="left-nav col-md-2 pull-left">
+        <div class="auth-nav row" data-ng-include="'app/templates/auth-nav.html'"></div>
     </aside>
 
     <main data-ng-view class="col-md-10"></main>

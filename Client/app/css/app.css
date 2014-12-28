@@ -52,9 +52,14 @@ a {
 }
 
 /*HOME ADS*/
+.container-fluid {
+    text-align: center;
+}
+
 .ad-img-container {
-    padding: 20px;
-    background-color: limegreen;
+    padding: 10px;
+    background-color: #E4E8B2;
+    text-align: center;
 }
 
 .ad-img-container img {
@@ -64,31 +69,29 @@ a {
 
 hr {
     margin: 5px;
+    border: burlywood solid 1px;
 }
 
 .categories-filter, .towns-filter {
     height: 250px;
     overflow: hidden;
-    position: relative;
     font-size: 0.9em;
-    font-weight: normal;
     padding-left: 10px;
     padding-bottom: 10px;
+    margin-bottom: 5px;
     background-color: beige;
+    border-radius: 5px;
 }
 
 .category-filter:hover, .towns-filter:hover {
     overflow-y: auto;
 }
 
-.categories-filter hr, .towns-filter hr {
-    margin-top: 50px;
-}
-
 .categories-filter > h3, .towns-filter > h3 {
-    position: absolute;
-    top: 0;
     font-size: 1.7em;
+    padding: 0;
+    margin: 0;
+    text-align: center;
 }
 
 .categories-list-item input[type="radio"]:checked + label,
@@ -97,4 +100,65 @@ hr {
     color: beige;
     width: 100%;
     padding: 3px 5px;
+}
+
+/*HOME ADS*/
+.ad {
+    background-color: beige;
+    margin-bottom: 2px;
+    border-radius: 5px;
+}
+
+.ad p {
+    margin: 5px;
+}
+
+.ad-text {
+    text-indent: 15px;
+    font-size: .9em;
+
+}
+
+.ad-owner-name,
+.ad-owner-phone,
+.ad-owner-email {
+    background-color: #E4E8B2;
+}
+
+.ad-owner-name > span,
+.ad-owner-phone > span,
+.ad-owner-email > span {
+    font-weight: 600;
+    font-size: .8em;
+    margin-right: 10px;
+}
+
+/*PAGINATION*/
+.pagination li > a {
+    color: #000000;
+    background-color: beige;
+}
+
+/*LEFT ASIDE*/
+.auth-nav {
+    background-color: beige;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.auth-nav > p {
+    font-weight: bold;
+}
+
+.auth-nav a {
+    display: block;
+    padding: 10px;
+    margin: 5px 0;
+    margin-left: 10%;
+    width: 80%;
+    border-radius: 5px;
+    background-color: saddlebrown;
+    font-size: 1.2em;
+    color: beige;
+
 }

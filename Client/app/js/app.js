@@ -6,4 +6,4 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
             })
     }])
     .constant('baseUrl', 'http://localhost:1337/api')
-    .constant('pageSize', 4);
+    .constant('pageSize', 3);

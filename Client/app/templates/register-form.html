@@ -1,5 +1,5 @@
 <form data-ng-controller="RegisterController" class="form-horizontal col-md-offset-1 col-md-8" id="register-form"
-      name="register-form">
+      name="registerForm">
     <fieldset>
         <legend>User Registration</legend>
         <div class="container-fluid col-md-12 clearfix">
@@ -45,7 +45,8 @@
                     <label for="input-email" class="control-label pull-left">Email</label>
 
                     <div>
-                        <input type="text" data-ng-model="user.email" required="required" class="form-control"
+                        <input type="text" data-ng-model="user.email" data-ng-pattern="emailPattern" required="required"
+                               class="form-control"
                                id="input-email" placeholder="Email">
                     </div>
                 </div>
@@ -55,7 +56,7 @@
                     <label for="input-phone" class="control-label pull-left">Phone</label>
 
                     <div>
-                        <input type="text" data-ng-model="email" data-ng-pattern="emailPattern" class="form-control"
+                        <input type="text" data-ng-model="user.phone" class="form-control"
                                id="input-phone" placeholder="Phone">
                     </div>
                 </div>
@@ -63,7 +64,7 @@
                     <label for="reg-select-town" class="control-label pull-left">Town</label>
 
                     <div>
-                        <select class="form-control" id="reg-select-town">
+                        <select class="form-control" id="reg-select-town" data-ng-model="user.townId">
                             <option data-ng-repeat="town in towns" data-id="{{town.id}}" value="{{town.id}}">
                                 {{town.name}}
                             </option>

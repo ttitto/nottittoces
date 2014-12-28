@@ -4,4 +4,8 @@ adsApp.controller('RegisterController', ['$scope', 'TownsResource',
         $scope.passwordPattern = /^[\s\S]{2,100}$/;
 
         $scope.towns = TownsResource.all();
+
+        $scope.register = function (user, userForm) {
+            // TODO: implement user registration
+        };
     }]);

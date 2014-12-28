@@ -1,3 +1,4 @@
+/*INITIAL RESET*/
 html, body {
     margin: 0;
     padding: 0;
@@ -6,6 +7,9 @@ html, body {
 
 body {
     line-height: 1;
+    font-size: 10pt;
+    font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+    background-color: saddlebrown;
 }
 
 article, aside, details, figcaption, figure,
@@ -36,6 +40,18 @@ a {
     height: 0;
 }
 
+/*HEADER*/
+
+.navbar {
+    min-height: 10px;
+    padding: 0;
+}
+
+.navbar-header {
+    padding: 0;
+}
+
+/*HOME ADS*/
 .ad-img-container {
     padding: 20px;
     background-color: limegreen;
@@ -44,4 +60,41 @@ a {
 .ad-img-container img {
     max-width: 100px;
     max-height: 100px;
+}
+
+hr {
+    margin: 5px;
+}
+
+.categories-filter, .towns-filter {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    font-size: 0.9em;
+    font-weight: normal;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    background-color: beige;
+}
+
+.category-filter:hover, .towns-filter:hover {
+    overflow-y: auto;
+}
+
+.categories-filter hr, .towns-filter hr {
+    margin-top: 50px;
+}
+
+.categories-filter > h3, .towns-filter > h3 {
+    position: absolute;
+    top: 0;
+    font-size: 1.7em;
+}
+
+.categories-list-item input[type="radio"]:checked + label,
+.towns-list-item input[type="radio"]:checked + label {
+    background-color: saddlebrown;
+    color: beige;
+    width: 100%;
+    padding: 3px 5px;
 }

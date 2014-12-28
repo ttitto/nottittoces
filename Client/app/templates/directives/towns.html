@@ -1,0 +1,13 @@
+<div class="towns-filter">
+    <h3>Towns</h3>
+    <hr/>
+    <div class="towns-list-item">
+        <input type="radio" name="towns" id="all-towns" value="" hidden="hidden" checked/>
+        <label for="all-towns">All</label>
+    </div>
+
+    <div data-ng-repeat="town in towns" class="towns-list-item">
+        <input type="radio" name="towns" id="town-{{town.id}}" value="{{town.name}}" hidden="hidden"/>
+        <label for="town-{{town.id}}">{{town.name}}</label>
+    </div>
+</div>

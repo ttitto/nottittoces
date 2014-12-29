@@ -10,6 +10,7 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
             .when('/login', {
                 templateUrl: 'app/templates/login-form.html'
             })
+            .otherwise({ redirectTo: '/' });
     }])
     .constant('baseUrl', 'http://localhost:1337/api')
     .constant('pageSize', 3);

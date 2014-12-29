@@ -31,8 +31,23 @@ adsApp.factory('authentication', ['$http', 'authorization', 'baseUrl', '$q',
             return d.promise;
         }
 
+        function logout() {
+            var d = $q.defer(),
+                headers = authorization.getAuthorizationHeaders();
+            console.log(headers)
+            $http.post(userServiceUrl + '/logout', headers)
+                .success(function (userLogoutData) {
+                    d.resolve(userLogoutData);
+                })
+                .error(function (logoutErr) {
+                    d.reject(logoutErr);
+                });
+            return d.promise;
+        }
+
         return{
             register: register,
-            login: login
+            login: login,
+            logout: logout
         }
     }]);

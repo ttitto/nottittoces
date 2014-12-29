@@ -4,11 +4,11 @@ adsApp.factory('authorization', [function () {
     var headers = {};
 
     function getLocalUser() {
-        var savedUser = sessionStorage.getItem('userData');
+        var savedUser = JSON.parse(sessionStorage.getItem('userData'));
         if (savedUser) {
             return savedUser;
         } else {
-            return false
+            return false;
         }
     }
 
@@ -22,13 +22,13 @@ adsApp.factory('authorization', [function () {
     }
 
     function setAuthorizationHeaders(accessToken) {
-        angular.extend(headers, {Authorization: 'Bearer + ' + accessToken});
+        angular.extend(headers, {Authorization: 'Bearer ' + accessToken});
     }
 
     function getAuthorizationHeaders() {
         var loggedUser = getLocalUser();
         if (loggedUser) {
-            setAuthorizationHeaders(loggedUser.accessToken);
+            setAuthorizationHeaders(loggedUser.access_token);
         }
 
         return headers;

@@ -13,8 +13,13 @@ adsApp.factory('authorization', [function () {
     }
 
     function setLocalUser(user) {
-        var userStr = JSON.stringify(user);
-        sessionStorage.setItem('userData', userStr);
+        if (!!user) {
+            var userStr = JSON.stringify(user);
+            sessionStorage.setItem('userData', userStr);
+        } else {
+            sessionStorage.removeItem('userData');
+        }
+
     }
 
     function isLogged() {

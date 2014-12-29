@@ -18,9 +18,7 @@
 
         <div data-ng-if="authorization.isLogged()" class="nav navbar-nav pull-right">
             <span class="user-greeting">{{authorization.getLocalUser().username}}</span>
-            <ul>
-                <li><a data-ng-click="logout()" href="#/logout">logout</a></li>
-            </ul>
+            <a data-ng-click="authentication.logout()" href="#/logout">logout</a>
         </div>
     </div>
 </div>

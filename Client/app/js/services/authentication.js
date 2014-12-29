@@ -6,7 +6,6 @@ adsApp.factory('authentication', ['$http', 'authorization', 'baseUrl', '$q',
 
         function register(user) {
             var d = $q.defer();
-
             $http.post(userServiceUrl + '/register', user)
                 .success(function (userRegistrationData) {
                     d.resolve(userRegistrationData);
@@ -34,14 +33,16 @@ adsApp.factory('authentication', ['$http', 'authorization', 'baseUrl', '$q',
         function logout() {
             var d = $q.defer(),
                 headers = authorization.getAuthorizationHeaders();
-            console.log(headers)
-            $http.post(userServiceUrl + '/logout', headers)
+            $http.post(userServiceUrl + '/logout', {}, {headers: headers})
                 .success(function (userLogoutData) {
+                    authorization.setLocalUser(undefined);
+                    authorization.removeAuthorizationHeaders();
                     d.resolve(userLogoutData);
                 })
                 .error(function (logoutErr) {
                     d.reject(logoutErr);
                 });
+
             return d.promise;
         }
 

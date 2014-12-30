@@ -1,5 +1,5 @@
-adsApp.controller('RegisterController', ['$scope', 'TownsResource', 'authentication', 'authorization', '$location',
-    function ($scope, TownsResource, authentication, authorization, $location) {
+adsApp.controller('RegisterController', ['$scope', 'TownsResource', 'authentication', 'authorization', '$location', 'messaging',
+    function ($scope, TownsResource, authentication, authorization, $location, messaging) {
         $scope.emailPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         $scope.passwordPattern = /^[\s\S]{2,100}$/;
 
@@ -12,7 +12,7 @@ adsApp.controller('RegisterController', ['$scope', 'TownsResource', 'authenticat
                     function (registerSuccessData) {
                         console.dir(registerSuccessData);
                         authorization.setLocalUser(registerSuccessData);
-                        // TODO: show success message
+                        messaging.successMessage('User account created. Please login!');
                         $location.path('/user/home');
 
                     },

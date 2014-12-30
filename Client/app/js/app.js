@@ -28,6 +28,9 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
                 controller: 'AdsController',
                 resolve: routePermissions.isUser
             })
+            .when('/user/ads/publish', {
+                templateUrl:'app/templates/ad-publish.html'
+            })
             .when('/admin/home', {
                 templateUrl: 'app/templates/ads.html',
                 controller: 'AdsController',
@@ -45,6 +48,6 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
     })
     .constant('baseUrl', 'http://localhost:1337/api')
     .constant('pageSize', 3);
-// TODO: implement messaging system for errors and success
-// TODO: take a look at responsive design
 // TODO: create a PageController to change the header content
+// TODO: implement directives for towns and categories selects
+// TODO: implement publishing ad template and functionality

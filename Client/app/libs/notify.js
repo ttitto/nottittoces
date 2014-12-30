@@ -3,7 +3,7 @@
 		var $this = $(this),
 			errorMessage = function (err, message) {
 				var errorsDiv = $('<div />');
-				errorsDiv.addClass('errors-container').html(message + ': ' + err).appendTo($this).fadeOut(4000);
+				errorsDiv.addClass('error-message-container').html(message + ': ' + err).appendTo($this).fadeOut(4000);
 				setTimeout(function () {
 					errorsDiv.remove();
 				}, 6000);

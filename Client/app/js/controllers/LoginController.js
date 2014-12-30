@@ -1,5 +1,5 @@
-adsApp.controller('LoginController', ['$scope', 'authentication', 'authorization', '$location',
-    function ($scope, authentication, authorization, $location) {
+adsApp.controller('LoginController', ['$scope', 'authentication', 'authorization', '$location', 'messaging',
+    function ($scope, authentication, authorization, $location, messaging) {
         $scope.passwordPattern = /^[\s\S]{2,100}$/;
 
         $scope.login = function (user, userForm) {
@@ -9,11 +9,11 @@ adsApp.controller('LoginController', ['$scope', 'authentication', 'authorization
                     function (loginSuccessData) {
                         console.dir(loginSuccessData);
                         authorization.setLocalUser(loginSuccessData);
-                        // TODO: show success message
                         $location.path('/user/home');
                     },
                     function error(loginErrorData) {
                         console.dir(loginErrorData);
+                        messaging.errorMessage('Invalid login.');
                     }
                 )
             }

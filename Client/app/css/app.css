@@ -39,7 +39,27 @@ a {
     clear: both;
     height: 0;
 }
-
+/*MESSAGES*/
+.success-message-container{
+    width: 100%;
+    line-height: 20pt;
+    background-color: #E4E8B2;
+    color: beige;
+    font-size: 12pt;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1000;
+}
+.error-message-container{
+    width: 100%;
+    line-height: 20pt;
+    background-color: red;
+    color: beige;
+    font-size: 12pt;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1000;
+}
 /*HEADER*/
 
 .navbar {
@@ -125,6 +145,7 @@ hr, legend {
     background-color: beige;
     border-radius: 5px;
     margin-left: 5px;
+    margin-bottom: 10px;
 }
 
 .auth-nav > p {
@@ -142,7 +163,10 @@ hr, legend {
     font-size: 1.2em;
     color: beige;
 }
-
+/*LOGIN FORM*/
+#login-form .form-group{
+    display: block;
+}
 /*HOME ADS*/
 .ad {
     background-color: beige;

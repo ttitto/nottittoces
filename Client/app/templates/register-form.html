@@ -1,9 +1,10 @@
-<form data-ng-controller="RegisterController" class="form-horizontal col-md-offset-1 col-md-8" id="register-form"
+<form data-ng-controller="RegisterController" class="form-horizontal col-md-offset-1 col-md-8 col-sm-offset-1 col-sm-8 col-xs-12"
+      id="register-form"
       name="registerForm">
     <fieldset>
         <legend>User Registration</legend>
-        <div class="container-fluid col-md-12 clearfix">
-            <div class="form-group col-md-12 pull-left">
+        <div class="container-fluid col-md-12 col-sm-12 col-xs-12 clearfix">
+            <div class="form-group col-md-12 col-sm-6 col-xs-12 pull-left">
                 <label for="input-username" class="control-label pull-left">Username</label>
 
                 <div>
@@ -12,7 +13,7 @@
                 </div>
             </div>
             <div>
-                <div class="form-group pull-left col-md-6">
+                <div class="form-group col-sm-6 col-xs-12 pull-left col-md-6">
                     <label for="input-password" class="control-label pull-left">Password</label>
 
                     <div>
@@ -21,7 +22,7 @@
                                id="input-password" placeholder="Password">
                     </div>
                 </div>
-                <div class="form-group pull-right col-md-6">
+                <div class="form-group col-sm-6 col-xs-12 pull-right col-md-6">
                     <label for="input-confirm-password" class="control-label pull-left">Confirm Password</label>
 
                     <div>
@@ -33,7 +34,7 @@
                 </div>
             </div>
             <div>
-                <div class="form-group pull-left col-md-6">
+                <div class="form-group pull-left col-md-6 col-sm-6 col-xs-12">
                     <label for="input-name" class="control-label pull-left">Name</label>
 
                     <div>
@@ -41,7 +42,7 @@
                                id="input-name" placeholder="Name">
                     </div>
                 </div>
-                <div class="form-group pull-right col-md-6">
+                <div class="form-group pull-right col-md-6 col-sm-6 col-xs-12">
                     <label for="input-email" class="control-label pull-left">Email</label>
 
                     <div>
@@ -52,7 +53,7 @@
                 </div>
             </div>
             <div>
-                <div class="form-group pull-left col-md-6">
+                <div class="form-group pull-left col-md-6 col-sm-6 col-xs-12">
                     <label for="input-phone" class="control-label pull-left">Phone</label>
 
                     <div>
@@ -60,7 +61,7 @@
                                id="input-phone" placeholder="Phone">
                     </div>
                 </div>
-                <div class="form-group pull-right col-md-6">
+                <div class="form-group pull-right col-md-6 col-sm-6 col-xs-12">
                     <label for="reg-select-town" class="control-label pull-left">Town</label>
 
                     <div>
@@ -72,7 +73,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group pull-left col-md-12">
+            <div class="form-group pull-left col-md-12 col-sm-12 col-xs-12">
                 <div>
                     <button data-ng-click="register(user, registerForm)"
                             data-ng-disabled="registerForm.$invalid || user.password != user.confirmPassword"

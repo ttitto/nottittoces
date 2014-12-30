@@ -105,6 +105,43 @@ hr, legend {
     width: 100%;
     padding: 3px 5px;
 }
+/*SIDE NAV*/
+.side-nav ul{
+    padding: 0;
+}
+.side-nav a{
+    font-weight: bold;
+    display: block;
+    width: 100%;
+    padding: 3px 5px;
+}
+.side-nav a:active,.side-nav a:hover{
+    text-decoration: none;
+    background-color: saddlebrown;
+    color: beige;
+}
+    /*AUTHENTICATION NAV*/
+.auth-nav {
+    background-color: beige;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.auth-nav > p {
+    font-weight: bold;
+}
+
+.auth-nav a {
+    display: block;
+    padding: 10px;
+    margin: 5px 0;
+    margin-left: 10%;
+    width: 80%;
+    border-radius: 5px;
+    background-color: saddlebrown;
+    font-size: 1.2em;
+    color: beige;
+}
 
 /*HOME ADS*/
 .ad {
@@ -141,30 +178,6 @@ hr, legend {
 .pagination li > a {
     color: #000000;
     background-color: beige;
-}
-
-/*LEFT ASIDE*/
-.auth-nav {
-    background-color: beige;
-    border-radius: 5px;
-    margin-left: 5px;
-}
-
-.auth-nav > p {
-    font-weight: bold;
-}
-
-.auth-nav a {
-    display: block;
-    padding: 10px;
-    margin: 5px 0;
-    margin-left: 10%;
-    width: 80%;
-    border-radius: 5px;
-    background-color: saddlebrown;
-    font-size: 1.2em;
-    color: beige;
-
 }
 
 .form-group label {

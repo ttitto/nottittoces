@@ -17,7 +17,6 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
     }])
     .constant('baseUrl', 'http://localhost:1337/api')
     .constant('pageSize', 3);
-// TODO: implement filtering of the ads in the home page
 // TODO: implement messaging system for errors and success
 // TODO: take a look at responsive design
 // TODO: create a PageController to change the header content

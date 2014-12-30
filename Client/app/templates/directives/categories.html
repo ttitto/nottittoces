@@ -2,9 +2,9 @@
 <hr/>
 <div class="categories-list-item">
     <input type="radio" name="categories" id="all-categories" value="" hidden="hidden" checked/>
-    <label for="all-categories">All</label>
+    <label for="all-categories" data-ng-click="filterByCategory(category)">All</label>
 </div>
 <div data-ng-repeat="category in categories" class="categories-list-item">
     <input type="radio" name="categories" id="category-{{category.id}}" value="{{category.name}}" hidden="hidden"/>
-    <label for="category-{{category.id}}">{{category.name}}</label>
+    <label for="category-{{category.id}}" data-ng-click="filterByCategory(category)">{{category.name}}</label>
 </div>

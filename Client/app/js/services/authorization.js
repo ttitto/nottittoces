@@ -1,6 +1,6 @@
 "use strict";
 
-adsApp.factory('authorization', [function () {
+adsApp.factory('authorization', ['$q', function ($q) {
     var headers = {};
 
     function getLocalUser() {
@@ -25,6 +25,32 @@ adsApp.factory('authorization', [function () {
         return !!this.getLocalUser();
     }
 
+    function isUser() {
+        if (this.isLogged()) {
+            var loggedUser = this.getLocalUser();
+            if (loggedUser.isAdmin === 'true') {
+                return $q.reject('not authorized');
+            } else {
+                return true;
+            }
+        } else {
+            return $q.reject('not authorized');
+        }
+    }
+
+    function isAdmin() {
+        if (this.isLogged()) {
+            var loggedUser = this.getLocalUser();
+            console.dir(loggedUser);
+            console.dir(loggedUser.isAdmin);
+            if (loggedUser.isAdmin === 'true') {
+                return true
+            }
+        }
+
+        return $q.reject('not authorized');
+    }
+
     function setAuthorizationHeaders(accessToken) {
         angular.extend(headers, {Authorization: 'Bearer ' + accessToken});
     }
@@ -46,6 +72,8 @@ adsApp.factory('authorization', [function () {
         getLocalUser: getLocalUser,
         setLocalUser: setLocalUser,
         isLogged: isLogged,
+        isUser: isUser,
+        isAdmin: isAdmin,
         getAuthorizationHeaders: getAuthorizationHeaders,
         removeAuthorizationHeaders: removeAuthorizationHeaders
     }

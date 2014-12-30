@@ -19,7 +19,6 @@ adsApp.factory('authorization', [function () {
         } else {
             sessionStorage.removeItem('userData');
         }
-
     }
 
     function isLogged() {

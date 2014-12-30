@@ -1,5 +1,10 @@
-<div data-ng-controller="AdsController">
-    <section class="container-fluid col-md-9">
+<div data-ng-controller="AdsController" class="row clearfix">
+    <aside class="container-fluid aside right-aside pull-right col-md-3 col-sm-12 col-xs-12">
+        <div categories class="filter col-md-12 col-sm-6 col-xs-6"></div>
+        <div towns class="filter col-md-12 col-sm-6 col-xs-6"></div>
+    </aside>
+
+    <section class="container-fluid pull-right col-md-9 col-sm-12 col-xs-12">
         <ul class="ads row">
             <li data-ng-repeat="ad in ads" class="ad read-ad col-md-12">
                 <div class="row clearfix">
@@ -22,14 +27,8 @@
 
                         <p class="ad-owner-phone"><span>Tel.</span>{{ad.ownerPhone}}</p>
                     </div>
-
                 </div>
         </ul>
         <div pagination class="row"></div>
     </section>
-
-    <aside class="col-md-3 pull-right filters">
-        <div categories></div>
-        <div towns></div>
-    </aside>
 </div>

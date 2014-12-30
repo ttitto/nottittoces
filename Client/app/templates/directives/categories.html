@@ -1,12 +1,10 @@
-<div class="categories-filter">
-    <h3>Categories</h3>
-    <hr/>
-    <div class="categories-list-item">
-        <input type="radio" name="categories" id="all-categories" value="" hidden="hidden" checked/>
-        <label for="all-categories">All</label>
-    </div>
-    <div data-ng-repeat="category in categories" class="categories-list-item">
-        <input type="radio" name="categories" id="category-{{category.id}}" value="{{category.name}}" hidden="hidden"/>
-        <label for="category-{{category.id}}">{{category.name}}</label>
-    </div>
+<h3>Categories</h3>
+<hr/>
+<div class="categories-list-item">
+    <input type="radio" name="categories" id="all-categories" value="" hidden="hidden" checked/>
+    <label for="all-categories">All</label>
+</div>
+<div data-ng-repeat="category in categories" class="categories-list-item">
+    <input type="radio" name="categories" id="category-{{category.id}}" value="{{category.name}}" hidden="hidden"/>
+    <label for="category-{{category.id}}">{{category.name}}</label>
 </div>

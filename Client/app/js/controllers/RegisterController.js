@@ -13,7 +13,7 @@ adsApp.controller('RegisterController', ['$scope', 'TownsResource', 'authenticat
                         console.dir(registerSuccessData);
                         authorization.setLocalUser(registerSuccessData);
                         // TODO: show success message
-                        $location.path('/');
+                        $location.path('/user/home');
 
                     },
                     function error(registerErrorData) {

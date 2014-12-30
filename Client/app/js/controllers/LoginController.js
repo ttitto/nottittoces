@@ -10,7 +10,7 @@ adsApp.controller('LoginController', ['$scope', 'authentication', 'authorization
                         console.dir(loginSuccessData);
                         authorization.setLocalUser(loginSuccessData);
                         // TODO: show success message
-                        $location.path('/');
+                        $location.path('/user/home');
 
                     },
                     function error(loginErrorData) {

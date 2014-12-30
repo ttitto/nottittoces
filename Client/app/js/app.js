@@ -10,11 +10,13 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
             .when('/login', {
                 templateUrl: 'app/templates/login-form.html'
             })
+            .when('/user/home', {
+                templateUrl: 'app/templates/ads.html'
+            })
             .otherwise({ redirectTo: '/' });
     }])
     .constant('baseUrl', 'http://localhost:1337/api')
     .constant('pageSize', 3);
-// TODO: implement logout
 // TODO: implement filtering of the ads in the home page
 // TODO: implement messaging system for errors and success
 // TODO: take a look at responsive design

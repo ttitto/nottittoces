@@ -1,0 +1,54 @@
+<form data-ng-controller="AdPublishController"
+      class="form-horizontal col-md-offset-1 col-md-8 col-sm-offset-1 col-sm-8 col-xs-12"
+      id="ad-publish-form"
+      name="adPublishForm">
+    <fieldset>
+        <legend>Publish New Ad</legend>
+        <div class="container-fluid col-md-12 col-sm-12 col-xs-12 clearfix">
+            <div class="row">
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <div class="form-group">
+                        <label class="control-label" for="ad-title">Title: </label>
+                        <input type="text" data-ng-model="ad.title" id="ad-title" class="form-control"
+                               placeholder="Title"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="" for="ad-text">Text: </label>
+                        <textarea data-ng-model="ad.text" name="adTextArea" id="ad-text" cols="40" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="ad-img-container col-md-3 col-sm-3 col-xs-12">
+                    <img src="" class="image-box" alt="ad image" data-ng-src="{{ad.imageDataUrl}}"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div browse preview=".image-box"/>
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group pull-right col-md-6 col-sm-6 col-xs-12">
+                    <label for="reg-select-town" class="control-label pull-left">Town</label>
+
+                    <div>
+                        <select class="form-control" id="reg-select-town" data-ng-model="user.townId">
+                            <option data-ng-repeat="town in towns" data-id="{{town.id}}" value="{{town.id}}">
+                                {{town.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group pull-left col-md-12 col-sm-12 col-xs-12">
+                <div>
+                    <button data-ng-click="register(user, registerForm)"
+                            data-ng-disabled="registerForm.$invalid || user.password != user.confirmPassword"
+                            class="btn form-btn col-md-4">Register
+                    </button>
+                    <a href="#/login">Login here</a>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>

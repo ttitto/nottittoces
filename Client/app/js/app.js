@@ -29,7 +29,9 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
                 resolve: routePermissions.isUser
             })
             .when('/user/ads/publish', {
-                templateUrl:'app/templates/ad-publish.html'
+                templateUrl: 'app/templates/ad-publish-form.html',
+                controller: 'AdPublishController',
+                resolve: routePermissions.isUser
             })
             .when('/admin/home', {
                 templateUrl: 'app/templates/ads.html',
@@ -39,7 +41,7 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
             .when('/unauthorized', {
                 template: '<div><p>Your request was rejected. You might not be authorized to view this content. Please log in!</p></div>'
             })
-            .otherwise({ redirectTo: '/' });
+                .otherwise({ redirectTo: '/' });
     }])
     .run(function ($rootScope, $location) {
         $rootScope.$on('$routeChangeError', function (ev, current, previous, rejection) {
@@ -48,6 +50,6 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
     })
     .constant('baseUrl', 'http://localhost:1337/api')
     .constant('pageSize', 3);
-// TODO: create a PageController to change the header content
 // TODO: implement directives for towns and categories selects
 // TODO: implement publishing ad template and functionality
+// TODO: create a PageController to change the header content

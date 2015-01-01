@@ -1,10 +1,6 @@
-<div data-ng-controller="AdsController" class="row clearfix">
-    <aside class="container-fluid aside right-aside pull-right col-md-3 col-sm-12 col-xs-12">
-        <div categories class="filter col-md-12 col-sm-6 col-xs-6"></div>
-        <div towns class="filter col-md-12 col-sm-6 col-xs-6"></div>
-    </aside>
+<div data-ng-controller="UserAdsController" class="row clearfix">
 
-    <section class="container-fluid pull-right col-md-9 col-sm-12 col-xs-12">
+    <section class="container-fluid col-md-9 col-sm-12 col-xs-12">
         <ul class="ads row">
             <li data-ng-repeat="ad in ads" class="ad read-ad col-md-12">
                 <div class="row clearfix">
@@ -19,13 +15,9 @@
                     <div class="col-md-9">
                         <p class="ad-text">{{ad.text}}</p>
 
-                        <p class="ad-owner-name on-background"><span>Name:</span>{{ad.ownerName}}</p>
+                        <p class="ad-category on-background"><span>Category: </span>{{ad.categoryName}}</p>
 
-                        <p class="ad-owner-email on-background"><span>Email:</span>
-                            <a href="mailto:{{ad.ownerEmail}}">{{ad.ownerEmail}}</a>
-                        </p>
-
-                        <p class="ad-owner-phone on-background"><span>Tel.</span>{{ad.ownerPhone}}</p>
+                        <p class="ad-town on-background"><span>Town: </span>{{ad.townName}}</p>
                     </div>
                 </div>
             </li>

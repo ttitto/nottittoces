@@ -1,0 +1,8 @@
+<div class="status-list-item">
+    <input type="radio" name="statuses" id="all-statuses" value="" hidden="hidden" checked/>
+    <label for="all-statuses" data-ng-click="filterByStatus(status)">All</label>
+</div>
+<div data-ng-repeat="status in statuses" class="statuses-list-item">
+    <input type="radio" name="statuses" id="status-{{status.id}}" value="{{status.id}}" hidden="hidden"/>
+    <label for="status-{{status.id}}" data-ng-click="filterByStatus(status)">{{status.name}}</label>
+</div>

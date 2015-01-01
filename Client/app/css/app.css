@@ -39,8 +39,9 @@ a {
     clear: both;
     height: 0;
 }
+
 /*MESSAGES*/
-.success-message-container{
+.success-message-container {
     width: 100%;
     line-height: 20pt;
     background-color: #E4E8B2;
@@ -50,7 +51,8 @@ a {
     position: absolute;
     z-index: 1000;
 }
-.error-message-container{
+
+.error-message-container {
     width: 100%;
     line-height: 20pt;
     background-color: red;
@@ -60,6 +62,7 @@ a {
     position: absolute;
     z-index: 1000;
 }
+
 /*HEADER*/
 
 .navbar {
@@ -125,22 +128,26 @@ hr, legend {
     width: 100%;
     padding: 3px 5px;
 }
+
 /*SIDE NAV*/
-.side-nav ul{
+.side-nav ul {
     padding: 0;
 }
-.side-nav a{
+
+.side-nav a {
     font-weight: bold;
     display: block;
     width: 100%;
     padding: 3px 5px;
 }
-.side-nav a:active,.side-nav a:hover{
+
+.side-nav a:active, .side-nav a:hover {
     text-decoration: none;
     background-color: saddlebrown;
     color: beige;
 }
-    /*AUTHENTICATION NAV*/
+
+/*AUTHENTICATION NAV*/
 .auth-nav {
     background-color: beige;
     border-radius: 5px;
@@ -163,10 +170,12 @@ hr, legend {
     font-size: 1.2em;
     color: beige;
 }
+
 /*LOGIN FORM*/
-#login-form .form-group{
+#login-form .form-group {
     display: block;
 }
+
 /*HOME ADS*/
 .ad {
     background-color: beige;
@@ -184,15 +193,11 @@ hr, legend {
 
 }
 
-.ad-owner-name,
-.ad-owner-phone,
-.ad-owner-email {
+.on-background {
     background-color: #E4E8B2;
 }
 
-.ad-owner-name > span,
-.ad-owner-phone > span,
-.ad-owner-email > span {
+.on-background > span{
     font-weight: 600;
     font-size: .8em;
     margin-right: 10px;
@@ -229,6 +234,7 @@ form .btn {
     overflow: hidden;
     margin: 10px;
 }
+
 .fileUpload input.upload-input {
     position: absolute;
     top: 0;

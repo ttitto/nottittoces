@@ -7,11 +7,11 @@ adsApp.directive('categories', [function () {
         link: function (scope) {
             scope.filterByCategory = function (category) {
                 if (category) {
-                    angular.extend(scope.adsRequestParams, {categoryId: category.id});
+                    angular.extend(scope.requestParams, {categoryId: category.id});
                 } else {
-                    delete scope.adsRequestParams['categoryId'];
+                    delete scope.requestParams['categoryId'];
                 }
-                scope.getAds(scope.adsRequestParams);
+                scope.getListedItems(scope.requestParams);
             }
         }
     }

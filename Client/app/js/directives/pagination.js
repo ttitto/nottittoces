@@ -5,30 +5,32 @@ adsApp.directive('pagination', [function () {
         templateUrl: './app/templates/directives/pagination.html',
         link: function (scope) {
             scope.firstPage = function () {
-                scope.adsRequestParams.startPage = 1;
-                scope.getAds(scope.adsRequestParams);
+                scope.requestParams.startPage = 1;
+                scope.getListedItems(scope.requestParams);
             };
             scope.prevPage = function () {
-                if (parseInt(scope.adsRequestParams.startPage) > 1) {
-                    scope.adsRequestParams.startPage -= 1;
+                if (parseInt(scope.requestParams.startPage) > 1) {
+                    scope.requestParams.startPage -= 1;
                 }
-                scope.getAds(scope.adsRequestParams);
+                scope.getListedItems(scope.requestParams);
             };
 
             scope.setStartPage = function (startPage) {
-                scope.adsRequestParams.startPage = startPage;
-                scope.getAds(scope.adsRequestParams);
+                scope.requestParams.startPage = startPage;
+                scope.getListedItems(scope.requestParams);
             };
 
-            scope.nextPage = function () {
-                scope.adsRequestParams.startPage += 1;
-                scope.getAds(scope.adsRequestParams);
+            scope.nextPage = function (length) {
+                if (scope.requestParams.startPage < length) {
+                    scope.requestParams.startPage += 1;
+                }
+
+                scope.getListedItems(scope.requestParams);
             };
 
             scope.lastPage = function (length) {
-                scope.adsRequestParams.startPage = length;
-                scope.getAds(scope.adsRequestParams);
-
+                scope.requestParams.startPage = length;
+                scope.getListedItems(scope.requestParams);
             };
         }
     }

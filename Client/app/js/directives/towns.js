@@ -1,3 +1,5 @@
+"use strict";
+
 adsApp.directive('towns', [function () {
     return{
         restrict: 'A',
@@ -5,11 +7,11 @@ adsApp.directive('towns', [function () {
         link: function (scope) {
             scope.filterByTown = function (town) {
                 if (town) {
-                    angular.extend(scope.adsRequestParams, {townId: town.id});
+                    angular.extend(scope.requestParams, {townId: town.id});
                 } else {
-                    delete scope.adsRequestParams['townId'];
+                    delete scope.requestParams['townId'];
                 }
-                scope.getAds(scope.adsRequestParams);
+                scope.getListedItems(scope.requestParams);
             }
         }
     }

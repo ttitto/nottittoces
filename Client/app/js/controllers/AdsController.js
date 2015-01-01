@@ -5,9 +5,9 @@ adsApp.controller('AdsController', ['$scope', 'pageSize', 'CategoriesResource', 
         $scope.categories = CategoriesResource.all();
         $scope.towns = TownsResource.all();
 
-        $scope.adsRequestParams = {startPage: 1, pageSize: pageSize};
+        $scope.requestParams = {startPage: 1, pageSize: pageSize};
 
-        $scope.getAds = function (adsRequestParams) {
+        $scope.getListedItems = function (adsRequestParams) {
             AdsResource.all(adsRequestParams).then(
                 function (data) {
                     $scope.ads = data.ads;
@@ -16,5 +16,5 @@ adsApp.controller('AdsController', ['$scope', 'pageSize', 'CategoriesResource', 
             )
         };
 
-        $scope.getAds($scope.adsRequestParams);
+        $scope.getListedItems($scope.requestParams);
     }]);

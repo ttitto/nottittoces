@@ -8,7 +8,8 @@ adsApp.factory('AdsResource', ['$resource', 'baseUrl', 'pageSize', 'authorizatio
                 'getAll': {method: 'GET', isArray: false}
             }),
             userAdsResource = $resource(userAdsUrl, null, {
-                'publishAd': {method: 'POST', headers: headers}
+                'publishAd': {method: 'POST', headers: headers},
+                'getUserAds': {method: 'GET', headers: headers}
             });
 
         return {
@@ -17,6 +18,9 @@ adsApp.factory('AdsResource', ['$resource', 'baseUrl', 'pageSize', 'authorizatio
             },
             publishAd: function (ad) {
                 return userAdsResource.publishAd(ad).$promise;
+            },
+            getUserAds: function (adsRequestParams) {
+                return userAdsResource.getUserAds(adsRequestParams).$promise;
             }
         }
     }]);

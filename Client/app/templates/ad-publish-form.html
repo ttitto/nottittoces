@@ -8,13 +8,16 @@
             <div class="row">
                 <div class="col-md-9 col-sm-9 col-xs-12">
                     <div class="form-group">
-                        <label class="control-label" for="ad-title">Title: </label>
-                        <input type="text" data-ng-model="ad.title" id="ad-title" class="form-control"
+                        <label class="col-md-2" for="ad-title">Title: </label>
+                        <input type="text" data-ng-model="ad.title" required="required" id="ad-title"
+                               class="form-control col-md-10"
                                placeholder="Title"/>
                     </div>
                     <div class="form-group">
-                        <label class="" for="ad-text">Text: </label>
-                        <textarea data-ng-model="ad.text" name="adTextArea" id="ad-text" cols="40" rows="5"></textarea>
+                        <label class="control-label col-md-2" for="ad-text">Text: </label>
+                        <textarea class="form-control col-md-10" required="required" data-ng-model="ad.text"
+                                  name="adTextArea" id="ad-text"
+                                  cols="40" rows="5"></textarea>
                     </div>
                 </div>
                 <div class="ad-img-container col-md-3 col-sm-3 col-xs-12">
@@ -22,31 +25,43 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div browse preview=".image-box"/>
+                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                    <label class="col-md-2">Image: </label>
+
+                    <div class="" browse preview=".image-box"/>
                 </div>
             </div>
-
-            <div>
-                <div class="form-group pull-right col-md-6 col-sm-6 col-xs-12">
-                    <label for="reg-select-town" class="control-label pull-left">Town</label>
-
-                    <div>
-                        <select class="form-control" id="reg-select-town" data-ng-model="user.townId">
-                            <option data-ng-repeat="town in towns" data-id="{{town.id}}" value="{{town.id}}">
-                                {{town.name}}
-                            </option>
-                        </select>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label class="col-md-2" for="towns-select">Town: </label>
+                        <select towns-select required="required" class="form-control col-md-10" name="townsSelect"
+                                id="towns-select"
+                                data-ng-model="ad.townId"></select>
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label class="col-md-2" for="categories-select">Category: </label>
+                        <select categories-select required="required" name="categoriesSelect"
+                                class="form-control col-md-10"
+                                id="categories-select"
+                                data-ng-model="ad.categoryId"></select>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="form-group pull-left col-md-12 col-sm-12 col-xs-12">
                 <div>
-                    <button data-ng-click="register(user, registerForm)"
-                            data-ng-disabled="registerForm.$invalid || user.password != user.confirmPassword"
-                            class="btn form-btn col-md-4">Register
+                    <button data-ng-click="publishAd(ad, adPublishForm)"
+                            data-ng-disabled="adPublishForm.$invalid"
+                            class="btn form-btn col-md-4">Publish
                     </button>
-                    <a href="#/login">Login here</a>
+                    <a href="#/user/home" class="btn form-btn col-md-4 col-md-offset-1">Cancel</a>
                 </div>
             </div>
         </div>

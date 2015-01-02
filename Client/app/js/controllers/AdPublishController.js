@@ -4,6 +4,7 @@ adsApp.controller('AdPublishController', ['$scope', 'messaging', 'CategoriesReso
     function ($scope, messaging, CategoriesResource, TownsResource, AdsResource, $location) {
         $scope.categories = CategoriesResource.all();
         $scope.towns = TownsResource.all();
+        $scope.buttonName = 'Browse...';
 
         $scope.ad = {};
 

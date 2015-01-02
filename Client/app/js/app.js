@@ -11,7 +11,6 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
                     return authorization.isAdmin();
                 }
             }
-
         };
         $routeProvider
             .when('/', {
@@ -25,7 +24,7 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
             })
             .when('/user/home', {
                 templateUrl: 'app/templates/ads.html',
-                controller: 'AdsController',
+                controller: 'UserAdsController',
                 resolve: routePermissions.isUser
             })
             .when('/user/ads', {
@@ -36,6 +35,16 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
             .when('/user/ads/publish', {
                 templateUrl: 'app/templates/ad-publish-form.html',
                 controller: 'AdPublishController',
+                resolve: routePermissions.isUser
+            })
+            .when('/user/ads/edit/:id', {
+                templateUrl: 'app/templates/ad-edit-form.html',
+                controller: 'EditUserAdController',
+                resolve: routePermissions.isUser
+            })
+            .when('/user/ads/delete/:id', {
+                templateUrl: 'app/templates/user-confirm-delete-ad.html',
+                controller: 'DeleteUserAdController',
                 resolve: routePermissions.isUser
             })
             .when('/admin/home', {
@@ -55,6 +64,3 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
     })
     .constant('baseUrl', 'http://localhost:1337/api')
     .constant('pageSize', 2);
-// TODO: implement directives for towns and categories selects
-// TODO: implement publishing ad template and functionality
-// TODO: create a PageController to change the header content

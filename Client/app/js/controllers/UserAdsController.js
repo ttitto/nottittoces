@@ -1,5 +1,5 @@
-adsApp.controller('UserAdsController', ['$scope', 'messaging', 'AdsResource', '$location', 'pageSize',
-    function ($scope, messaging, AdsResource, $location, pageSize) {
+adsApp.controller('UserAdsController', ['$scope', 'messaging', 'AdsResource', '$location', 'pageSize', 'authorization',
+    function ($scope, messaging, AdsResource, $location, pageSize, authorization) {
         $scope.requestParams = {startPage: 1, pageSize: pageSize};
         $scope.ads = [];
 
@@ -44,5 +44,10 @@ adsApp.controller('UserAdsController', ['$scope', 'messaging', 'AdsResource', '$
                     messaging.errorMessage('The ad couldn\'t be published again.');
                 }
             )
-        }
+        };
+
+        $scope.redirrectToMyAds = function () {
+            authorization.getAuthorizationHeaders();
+            $location.path('/user/ads');
+        };
     }]);

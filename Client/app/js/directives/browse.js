@@ -21,7 +21,8 @@ adsApp.directive('browse', [function () {
                 } else {
                     $(attrs.preview).attr('alt', 'File type not supported!');
                 }
-            }
+            };
+
         }
     }
 }]);

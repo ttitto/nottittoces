@@ -11,7 +11,10 @@ adsApp.factory('AdsResource', ['$resource', 'baseUrl', 'pageSize', 'authorizatio
                 'publishAd': {method: 'POST', headers: headers},
                 'getUserAds': {method: 'GET', headers: headers},
                 'deactivate': {url: userAdsUrl + '/deactivate/:id', method: 'PUT', params: {id: '@id'}, headers: headers},
-                'publishAgain': {url: userAdsUrl + '/publishAgain/:id', method: 'PUT', params: {id: '@id'}, headers: headers}
+                'publishAgain': {url: userAdsUrl + '/publishAgain/:id', method: 'PUT', params: {id: '@id'}, headers: headers},
+                'getById': {url: userAdsUrl + '/:id', method: 'GET', headers: headers},
+                'editUserAd': {url: userAdsUrl + '/:id', method: 'PUT', params: {id: '@id'}, headers: headers},
+                'deleteUserAd': {url: userAdsUrl + '/:id', method: 'DELETE', params: {id: '@id'}, headers: headers}
             });
 
         return {
@@ -29,6 +32,16 @@ adsApp.factory('AdsResource', ['$resource', 'baseUrl', 'pageSize', 'authorizatio
             },
             publishAgain: function (id) {
                 return userAdsResource.publishAgain({id: id}).$promise;
+            },
+            getById: function (id) {
+                return userAdsResource.getById({id: id}).$promise;
+            },
+            editUserAd: function (ad) {
+                return userAdsResource.editUserAd(ad).$promise;
+            },
+            deleteUserAd: function (ad) {
+                return userAdsResource.deleteUserAd({id: ad.id}).$promise;
             }
         }
-    }]);
+    }])
+;

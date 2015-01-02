@@ -35,10 +35,12 @@
                     <a href="" data-ng-if="ad.status=='WaitingApproval' || ad.status=='Published'"
                        data-ng-click="deactivateAd(ad)"
                        class="btn form-btn col-md-12">Deactivate</a>
-                    <a href="" data-ng-if="ad.status=='Inactive'" class="btn form-btn col-md-12">Edit</a>
+                    <a href="#/user/ads/edit/{{ad.id}}" data-ng-if="ad.status=='Inactive'"
+                       class="btn form-btn col-md-12">Edit</a>
                     <a href="" data-ng-if="ad.status=='Inactive'" data-ng-click="publishAgain(ad)"
                        class="btn form-btn col-md-12">Publish Again</a>
-                    <a href="" data-ng-if="ad.status=='Inactive'" class="btn form-btn col-md-12">Delete</a>
+                    <a href="#/user/ads/delete/{{ad.id}}" data-ng-if="ad.status=='Inactive'"
+                       class="btn form-btn col-md-12">Delete</a>
                 </div>
             </li>
         </ul>

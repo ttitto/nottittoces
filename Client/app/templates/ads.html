@@ -13,8 +13,8 @@
                 </div>
                 <div class="row clearfix">
                     <div class="ad-img-container col-md-3 pull-left">
-                        <img src="" alt="" data-ng-src="{{ad.imageDataUrl}}"/>
-                        <img src="" alt="" data-ng-if="!ad.imageDataUrl" data-ng-src="./app/imgs/no-image.png"/>
+                        <img src="" alt="" data-ng-src="{{ad.imageDataUrl || './app/imgs/no-image.png'}}"/>
+                        <!--<img src="" alt="" data-ng-if="!ad.imageDataUrl" data-ng-src="./app/imgs/no-image.png"/>-->
                     </div>
                     <div class="col-md-9">
                         <p class="ad-text">{{ad.text}}</p>

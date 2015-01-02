@@ -9,7 +9,9 @@ adsApp.factory('AdsResource', ['$resource', 'baseUrl', 'pageSize', 'authorizatio
             }),
             userAdsResource = $resource(userAdsUrl, null, {
                 'publishAd': {method: 'POST', headers: headers},
-                'getUserAds': {method: 'GET', headers: headers}
+                'getUserAds': {method: 'GET', headers: headers},
+                'deactivate': {url: userAdsUrl + '/deactivate/:id', method: 'PUT', params: {id: '@id'}, headers: headers},
+                'publishAgain': {url: userAdsUrl + '/publishAgain/:id', method: 'PUT', params: {id: '@id'}, headers: headers}
             });
 
         return {
@@ -21,6 +23,12 @@ adsApp.factory('AdsResource', ['$resource', 'baseUrl', 'pageSize', 'authorizatio
             },
             getUserAds: function (adsRequestParams) {
                 return userAdsResource.getUserAds(adsRequestParams).$promise;
+            },
+            deactivate: function (id) {
+                return userAdsResource.deactivate({id: id}).$promise;
+            },
+            publishAgain: function (id) {
+                return userAdsResource.publishAgain({id: id}).$promise;
             }
         }
     }]);

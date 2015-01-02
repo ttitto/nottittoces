@@ -4,6 +4,7 @@ adsApp.directive('towns', [function () {
     return{
         restrict: 'A',
         templateUrl: './app/templates/directives/towns.html',
+        scope:true,
         link: function (scope) {
             scope.filterByTown = function (town) {
                 if (town) {

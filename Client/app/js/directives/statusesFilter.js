@@ -7,11 +7,11 @@ adsApp.directive('statusesFilter', [function () {
         link: function (scope) {
             scope.filterByStatus = function (status) {
                 if (status) {
-                    angular.extend(scope.requestParams, {status: status.id});
+                    angular.extend(scope.requestParams, {status: status});
                 } else {
                     delete scope.requestParams['status'];
                 }
-                scope.getUserAds(scope.requestParams);
+                scope.getListedItems(scope.requestParams);
             }
         }
     }

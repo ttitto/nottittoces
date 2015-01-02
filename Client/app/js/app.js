@@ -30,6 +30,7 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
             })
             .when('/user/ads', {
                 templateUrl: 'app/templates/user-ad.html',
+                controller: 'UserAdsController',
                 resolve: routePermissions.isUser
             })
             .when('/user/ads/publish', {

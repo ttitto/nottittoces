@@ -3,6 +3,7 @@ adsApp.directive('pagination', [function () {
     return {
         restrict: 'A',
         templateUrl: './app/templates/directives/pagination.html',
+        scope:true,
         link: function (scope) {
             scope.firstPage = function () {
                 scope.requestParams.startPage = 1;

@@ -1,8 +1,16 @@
 <div class="status-list-item">
     <input type="radio" name="statuses" id="all-statuses" value="" hidden="hidden" checked/>
-    <label for="all-statuses" data-ng-click="filterByStatus(status)">All</label>
+    <label for="all-statuses" data-ng-click="filterByStatus(null)">All</label>
 </div>
-<div data-ng-repeat="status in statuses" class="statuses-list-item">
-    <input type="radio" name="statuses" id="status-{{status.id}}" value="{{status.id}}" hidden="hidden"/>
-    <label for="status-{{status.id}}" data-ng-click="filterByStatus(status)">{{status.name}}</label>
+<div class="statuses-list-item">
+    <input type="radio" name="statuses" id="status-published" value="Published" hidden="hidden"/>
+    <label for="status-published" data-ng-click="filterByStatus('Published')">Published</label>
+</div>
+<div class="statuses-list-item">
+    <input type="radio" name="statuses" id="status-waiting" value="waitingApproval" hidden="hidden"/>
+    <label for="status-waiting" data-ng-click="filterByStatus('WaitingApproval')">Waiting Approval</label>
+</div>
+<div class="statuses-list-item">
+    <input type="radio" name="statuses" id="status-rejected" value="Rejected" hidden="hidden"/>
+    <label for="status-rejected" data-ng-click="filterByStatus('rejected')">Rejected</label>
 </div>

@@ -197,7 +197,7 @@ hr, legend {
     background-color: #E4E8B2;
 }
 
-.on-background > span{
+.on-background > span {
     font-weight: 600;
     font-size: .8em;
     margin-right: 10px;
@@ -222,10 +222,11 @@ form {
     border-radius: 5px;
 }
 
-form .btn {
+.btn {
     background-color: saddlebrown;
     font-size: 1.2em;
     color: beige;
+    margin-bottom: 5px;
 }
 
 /*BROWSE BUTTONS*/

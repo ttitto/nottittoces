@@ -1,24 +1,44 @@
 <div data-ng-controller="UserAdsController" class="row clearfix">
-
+    <aside class="aside right-aside pull-right col-md-2 col-sm-12 col-xs-12 ">
+        <div class="side-nav row filter" data-ng-if="location.path()=='/user/ads'">
+            <h3>My Ads</h3>
+            <hr/>
+            <div statuses-filter/>
+        </div>
+    </aside>
     <section class="container-fluid col-md-9 col-sm-12 col-xs-12">
         <ul class="ads row">
             <li data-ng-repeat="ad in ads" class="ad read-ad col-md-12">
+
                 <div class="row clearfix">
                     <h4 class="col-md-9">{{ad.title}}</h4>
                     <time class="col-md-3 pull-right">{{ad.date | date:'d-MMM-yyyy'}}</time>
                 </div>
-                <div class="row clearfix">
-                    <div class="ad-img-container col-md-3 pull-left">
-                        <img src="" alt="" data-ng-src="{{ad.imageDataUrl}}"/>
-                        <img src="" alt="" data-ng-if="!ad.imageDataUrl" data-ng-src="./app/imgs/no-image.png"/>
-                    </div>
-                    <div class="col-md-9">
-                        <p class="ad-text">{{ad.text}}</p>
+                <div class="pull-left col-md-9">
+                    <div class="row clearfix">
+                        <div class="ad-img-container col-md-3 pull-left">
+                            <img src="" alt="" data-ng-src="{{ad.imageDataUrl}}"/>
+                            <img src="" alt="" data-ng-if="!ad.imageDataUrl" data-ng-src="./app/imgs/no-image.png"/>
+                        </div>
+                        <div class="col-md-9">
+                            <p class="ad-text">{{ad.text}}</p>
 
-                        <p class="ad-category on-background"><span>Category: </span>{{ad.categoryName}}</p>
+                            <p class="ad-category on-background"><span>Category: </span>{{ad.categoryName}}</p>
 
-                        <p class="ad-town on-background"><span>Town: </span>{{ad.townName}}</p>
+                            <p class="ad-town on-background"><span>Town: </span>{{ad.townName}}</p>
+                        </div>
                     </div>
+                </div>
+                <div class="user-actions pull-right col-md-3">
+                    <div>Status:</div>
+                    <p class="on-background">{{ad.status}}</p>
+                    <a href="" data-ng-if="ad.status=='WaitingApproval' || ad.status=='Published'"
+                       data-ng-click="deactivateAd(ad)"
+                       class="btn form-btn col-md-12">Deactivate</a>
+                    <a href="" data-ng-if="ad.status=='Inactive'" class="btn form-btn col-md-12">Edit</a>
+                    <a href="" data-ng-if="ad.status=='Inactive'" data-ng-click="publishAgain(ad)"
+                       class="btn form-btn col-md-12">Publish Again</a>
+                    <a href="" data-ng-if="ad.status=='Inactive'" class="btn form-btn col-md-12">Delete</a>
                 </div>
             </li>
         </ul>

@@ -47,6 +47,11 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
                 controller: 'DeleteUserAdController',
                 resolve: routePermissions.isUser
             })
+            .when('/user/profile', {
+                templateUrl: 'app/templates/user-edit-profile.html',
+                controller: 'EditUserProfileController',
+                resolve: routePermissions.isUser
+            })
             .when('/admin/home', {
                 templateUrl: 'app/templates/ads.html',
                 controller: 'AdsController',

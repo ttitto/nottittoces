@@ -11,6 +11,10 @@
     <label for="status-waiting" data-ng-click="filterByStatus('WaitingApproval')">Waiting Approval</label>
 </div>
 <div class="statuses-list-item">
+    <input type="radio" name="statuses" id="status-inactive" value="inactive" hidden="hidden"/>
+    <label for="status-inactive" data-ng-click="filterByStatus('Inactive')">Inactive</label>
+</div>
+<div class="statuses-list-item">
     <input type="radio" name="statuses" id="status-rejected" value="Rejected" hidden="hidden"/>
     <label for="status-rejected" data-ng-click="filterByStatus('rejected')">Rejected</label>
 </div>

@@ -65,6 +65,5 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
     .constant('baseUrl', 'http://localhost:1337/api')
     .constant('pageSize', 3);
 
-// TODO: Inactive category forgotten in the filter
 // TODO: bug with live preview in editing ad
 

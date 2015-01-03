@@ -10,7 +10,7 @@
 </head>
 <body data-ng-app="adsApp" data-ng-controller="PageController" data-ng-cloak>
 
-<div class="navbar navbar-inverse">
+<div class="navbar navbar-inverse" data-ng-cloak>
     <div class="navbar-header col-md-12">
         <a class="navbar-brand" href="#">Nottittoces</a>
 
@@ -25,6 +25,9 @@
 
         <h2 data-ng-if="location.path()=='/user/ads/publish'" class="navbar navbar-text">Ads - Publish New Ad</h2>
 
+        <h2 data-ng-if="isUserAdDelete()" class="navbar navbar-text">Ads - Delete Ad</h2>
+        <h2 data-ng-if="isUserAdEdit()" class="navbar navbar-text">Ads - Edit Ad</h2>
+
         <div data-ng-if="authorization.isLogged()" class="nav navbar-nav pull-right">
             <ul>
                 <li class="navbar-text navbar">
@@ -36,7 +39,7 @@
     </div>
 </div>
 
-<div class="container-fluid" data-ng-controller="AdsController">
+<div class="container-fluid" data-ng-controller="AdsController" data-ng-cloak>
     <aside class="aside left-aside pull-left col-md-2 col-sm-12 col-xs-12 ">
         <div class="auth-nav row" data-ng-if="!authorization.isLogged()"
              data-ng-include="'app/templates/auth-nav.html'">

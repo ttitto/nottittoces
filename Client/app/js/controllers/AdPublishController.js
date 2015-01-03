@@ -17,7 +17,7 @@ adsApp.controller('AdPublishController', ['$scope', 'messaging', 'CategoriesReso
                 .then(
                 function adPublishingSuccess(adPublishedData) {
                     messaging.successMessage('Advertisement submitted for approval. Once approved, it will be published.')
-                    $location.path('user/home');
+                    $location.path('user/ads');
                 },
                 function adPublishingError(adPublishedError) {
                     console.log(adPublishedError);

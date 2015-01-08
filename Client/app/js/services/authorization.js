@@ -29,27 +29,27 @@ adsApp.factory('authorization', ['$q', function ($q) {
         if (this.isLogged()) {
             var loggedUser = this.getLocalUser();
             if (loggedUser.isAdmin === 'true') {
-                return $q.reject('not authorized');
+                return false;
             } else {
                 return true;
             }
         } else {
-            return $q.reject('not authorized');
+            return false;
         }
     }
 
     function isAdmin() {
         if (this.isLogged()) {
             var loggedUser = this.getLocalUser();
-            console.dir(loggedUser);
-            console.dir(loggedUser.isAdmin);
             if (loggedUser.isAdmin === 'true') {
                 return true
+            } else {
+                return false;
             }
         }
-
-        return $q.reject('not authorized');
+        return false;
     }
+
 
     function setAuthorizationHeaders(accessToken) {
         angular.extend(headers, {Authorization: 'Bearer ' + accessToken});

@@ -12,6 +12,8 @@ adsApp.directive('towns', [function () {
                 } else {
                     delete scope.requestParams['townId'];
                 }
+
+                scope.requestParams.startPage = 1;
                 scope.getListedItems(scope.requestParams);
             }
         }

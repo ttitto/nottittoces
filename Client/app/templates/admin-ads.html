@@ -1,0 +1,55 @@
+<div data-ng-controller="AdminAdsController" class="row clearfix">
+    <aside class="container-fluid aside right-aside pull-right col-md-3 col-sm-12 col-xs-12">
+        <div class="filter" data-ng-if="location.path()=='/admin/home'">
+            <h3>Ads</h3>
+            <hr/>
+            <div statuses-filter class="filter col-md-12 col-sm-6 col-xs-6"></div>
+        </div>
+        <div categories class="filter col-md-12 col-sm-6 col-xs-6"></div>
+        <div towns class="filter col-md-12 col-sm-6 col-xs-6"></div>
+    </aside>
+
+    <section class="container-fluid pull-right col-md-9 col-sm-12 col-xs-12">
+        <ul class="ads row">
+            <li data-ng-repeat="ad in ads" class="ad read-ad col-md-12">
+                <div class="row clearfix">
+                    <h4 class="col-md-9">{{ad.title}}</h4>
+                    <time class="col-md-3 pull-right">{{ad.date | date:'d-MMM-yyyy'}}</time>
+                </div>
+                <div class="row clearfix">
+                    <div class="ad-img-container col-md-3 pull-left">
+                        <img src="" alt="" data-ng-src="{{ad.imageDataUrl || './app/imgs/no-image.png'}}"/>
+                    </div>
+                    <div class="col-md-9">
+                        <p class="ad-text">{{ad.text}}</p>
+
+                        <p class="ad-owner-username on-background"><span>Username:</span>{{ad.ownerUsername}}</p>
+
+                        <p class="ad-owner-name on-background"><span>Name:</span>{{ad.ownerName}}</p>
+
+                        <p class="ad-owner-email on-background"><span>Email:</span>
+                            <a href="mailto:{{ad.ownerEmail}}">{{ad.ownerEmail}}</a>
+                        </p>
+
+                        <p class="ad-owner-phone on-background"><span>Tel.</span>{{ad.ownerPhone}}</p>
+
+                        <p class="ad-category on-background"><span>Category:</span>{{ad.categoryName}}</p>
+
+                        <p class="ad-town on-background"><span>Town:</span>{{ad.townName}}</p>
+
+                        <p class="status on-background"><span>Status:</span>{{ad.status}}</p>
+                    </div>
+                </div>
+                <div class="row ">
+                    <hr class="col-md-11"/>
+                    <a href data-ng-click="approveAd(ad)" class="btn form-btn col-md-2 col-md-offset-1">Approve</a>
+                    <a href data-ng-click="rejectAd(ad)" class="btn form-btn col-md-2 col-md-offset-1">Reject</a>
+                    <a href="#/admin/ads/edit/{{ad.id}}" class="btn form-btn col-md-2 col-md-offset-1">Edit</a>
+                    <a href="#/admin/ads/delete/{{ad.id}}" class="btn form-btn col-md-2 col-md-offset-1">Delete</a>
+
+                </div>
+            </li>
+        </ul>
+        <div pagination class="row"></div>
+    </section>
+</div>

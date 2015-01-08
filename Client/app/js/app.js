@@ -4,11 +4,19 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
         var routePermissions = {
             isUser: {
                 authenticate: function (authorization) {
-                    return authorization.isUser();
+                    if (authorization.isUser() == true) {
+                        return true;
+                    } else {
+                        return $q.reject('not authorized');
+                    }
                 }},
             isAdmin: {
                 authenticate: function (authorization) {
-                    return authorization.isAdmin();
+                    if (authorization.isAdmin() == true) {
+                        return true;
+                    } else {
+                        return $q.reject('not authorized');
+                    }
                 }
             }
         };
@@ -53,8 +61,8 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
                 resolve: routePermissions.isUser
             })
             .when('/admin/home', {
-                templateUrl: 'app/templates/ads.html',
-                controller: 'AdsController',
+                templateUrl: 'app/templates/admin-ads.html',
+                controller: 'AdminAdsController',
                 resolve: routePermissions.isAdmin
             })
             .when('/unauthorized', {

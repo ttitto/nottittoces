@@ -7,9 +7,13 @@ adsApp.controller('LoginController', ['$scope', 'authentication', 'authorization
                 authentication.login(user)
                     .then(
                     function (loginSuccessData) {
-                        console.dir(loginSuccessData);
                         authorization.setLocalUser(loginSuccessData);
-                        $location.path('/user/home');
+                        authorization.getAuthorizationHeaders();
+                        if (loginSuccessData.isAdmin) {
+                            $location.path('/admin/home');
+                        } else {
+                            $location.path('/user/home');
+                        }
                     },
                     function error(loginErrorData) {
                         console.dir(loginErrorData);

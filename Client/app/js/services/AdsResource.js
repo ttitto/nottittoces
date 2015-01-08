@@ -3,6 +3,7 @@
 adsApp.factory('AdsResource', ['$resource', 'baseUrl', 'pageSize', 'authorization',
     function ($resource, baseUrl, pageSize, authorization) {
         var userAdsUrl = baseUrl + '/user/ads',
+            adminAdsUrl = baseUrl + '/admin/ads',
             headers = authorization.getAuthorizationHeaders(),
             publicAdsResource = $resource(baseUrl + '/ads', null, {
                 'getAll': {method: 'GET', isArray: false}
@@ -15,6 +16,11 @@ adsApp.factory('AdsResource', ['$resource', 'baseUrl', 'pageSize', 'authorizatio
                 'getById': {url: userAdsUrl + '/:id', method: 'GET', headers: headers},
                 'editUserAd': {url: userAdsUrl + '/:id', method: 'PUT', params: {id: '@id'}, headers: headers},
                 'deleteUserAd': {url: userAdsUrl + '/:id', method: 'DELETE', params: {id: '@id'}, headers: headers}
+            }),
+            adminAdsResource = $resource(adminAdsUrl, null, {
+                'getAdminAds': {method: 'GET', headers: headers},
+                'rejectAd': {url: adminAdsUrl + '/reject/:id', method: 'PUT', params: {id: '@id'}, headers: headers},
+                'approveAd': {url: adminAdsUrl + '/approve/:id', method: 'PUT', params: {id: '@id'}, headers: headers}
             });
 
         return {
@@ -41,6 +47,15 @@ adsApp.factory('AdsResource', ['$resource', 'baseUrl', 'pageSize', 'authorizatio
             },
             deleteUserAd: function (ad) {
                 return userAdsResource.deleteUserAd({id: ad.id}).$promise;
+            },
+            getAdminAds: function (adsRequestParams) {
+                return adminAdsResource.getAdminAds(adsRequestParams).$promise;
+            },
+            rejectAd: function rejectAd(ad) {
+                return adminAdsResource.rejectAd({id: ad.id}).$promise;
+            },
+            approveAd: function approveAd(ad) {
+                return adminAdsResource.approveAd({id: ad.id}).$promise;
             }
         }
     }])

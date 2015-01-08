@@ -12,8 +12,13 @@ adsApp.controller('RegisterController', ['$scope', 'TownsResource', 'authenticat
                     function (registerSuccessData) {
                         console.dir(registerSuccessData);
                         authorization.setLocalUser(registerSuccessData);
+                        authorization.getAuthorizationHeaders();
                         messaging.successMessage('User account created. Please login!');
-                        $location.path('/user/home');
+                        if (registerSuccessData.isAdmin) {
+                            $location.path('/admin/home');
+                        } else {
+                            $location.path('/user/home');
+                        }
 
                     },
                     function error(registerErrorData) {

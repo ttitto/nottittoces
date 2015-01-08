@@ -40,6 +40,4 @@ adsApp.controller('EditUserProfileController', ['$scope', 'TownsResource', 'User
                 messaging.errorMessage('Tne user form contains invalid data.');
             }
         };
-
-        console.log($scope.user);
     }]);

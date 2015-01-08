@@ -45,14 +45,4 @@ adsApp.controller('UserAdsController', ['$scope', 'messaging', 'AdsResource', '$
                 }
             )
         };
-
-        $scope.redirrectToMyAds = function () {
-            authorization.getAuthorizationHeaders();
-            $location.path('/user/ads');
-        };
-
-        $scope.redirrectToProfileEdit = function () {
-            authorization.getAuthorizationHeaders();
-            $location.path('/user/profile');
-        };
     }]);

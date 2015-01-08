@@ -14,7 +14,8 @@
     <div class="navbar-header col-md-12">
         <a class="navbar-brand" href="#">Nottittoces</a>
 
-        <h2 data-ng-if="location.path()=='/' || location.path()=='/user/home'" class="navbar navbar-text">Ads -
+        <h2 data-ng-cloak data-ng-if="location.path()=='/' || location.path()=='/user/home'" class="navbar navbar-text">
+            Ads -
             Home</h2>
 
         <h2 data-ng-if="location.path()=='/login'" class="navbar navbar-text">Ads - Login</h2>
@@ -30,6 +31,8 @@
         <h2 data-ng-if="isUserAdEdit()" class="navbar navbar-text">Ads - Edit Ad</h2>
 
         <h2 data-ng-if="location.path()=='/user/profile'" class="navbar navbar-text">Ads - Edit User Profile</h2>
+
+        <h2 data-ng-if="location.path()=='/admin/home'" class="navbar navbar-text">Ads Administration - Ads</h2>
 
         <div data-ng-if="authorization.isLogged()" class="nav navbar-nav pull-right">
             <ul>
@@ -47,17 +50,16 @@
         <div class="auth-nav row" data-ng-if="!authorization.isLogged()"
              data-ng-include="'app/templates/auth-nav.html'">
         </div>
-        <div class="side-nav row" data-ng-if="authorization.isLogged()"
+        <div class="side-nav row" data-ng-controller="UserAdsController"
+             data-ng-if="authorization.isUser()"
              data-ng-include="'app/templates/user-left-nav.html'">
         </div>
-
-        <!--<div class="side-nav row filter" data-ng-if="location.path()=='/user/ads'"-->
-        <!--data-ng-controller="UserAdsController">-->
-        <!--<h3>My Ads</h3>-->
-        <!--<hr/>-->
-        <!--<div statuses-filter/>-->
-        <!--</div>-->
+        <div class="side-nav row" data-ng-controller="AdminAdsController"
+             data-ng-if="authorization.isAdmin()"
+             data-ng-include="'app/templates/admin-left-nav.html'">
+        </div>
     </aside>
+
     <main class="col-md-10 col-sm-12 col-xs-12">
         <div id="notes"></div>
         <div data-ng-view></div>
@@ -80,6 +82,7 @@
 <script src="app/js/controllers/EditUserAdController.js" type="text/javascript"></script>
 <script src="app/js/controllers/DeleteUserAdController.js" type="text/javascript"></script>
 <script src="app/js/controllers/EditUserProfileController.js" type="text/javascript"></script>
+<script src="app/js/controllers/AdminAdsController.js" type="text/javascript"></script>
 <script src="app/js/services/CategoriesResource.js" type="text/javascript"></script>
 <script src="app/js/services/TownsResource.js" type="text/javascript"></script>
 <script src="app/js/services/AdsResource.js" type="text/javascript"></script>

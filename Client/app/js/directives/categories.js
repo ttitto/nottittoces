@@ -11,6 +11,7 @@ adsApp.directive('categories', [function () {
                 } else {
                     delete scope.requestParams['categoryId'];
                 }
+                scope.requestParams.startPage = 1;
                 scope.getListedItems(scope.requestParams);
             }
         }

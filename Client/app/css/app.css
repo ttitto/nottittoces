@@ -48,7 +48,6 @@ a {
     color: saddlebrown;
     font-size: 12pt;
     border-radius: 5px;
-    position: absolute;
     z-index: 1000;
 }
 
@@ -59,7 +58,6 @@ a {
     color: beige;
     font-size: 12pt;
     border-radius: 5px;
-    position: absolute;
     z-index: 1000;
 }
 
@@ -103,7 +101,7 @@ hr, legend {
 }
 
 .filter, .side-nav {
-    max-height: 250px;
+    max-height: 200px;
     overflow: hidden;
     padding-left: 10px;
     padding-bottom: 10px;

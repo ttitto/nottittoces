@@ -11,6 +11,8 @@ adsApp.directive('statusesFilter', [function () {
                 } else {
                     delete scope.requestParams['status'];
                 }
+
+                scope.requestParams.startPage = 1;
                 scope.getListedItems(scope.requestParams);
             }
         }

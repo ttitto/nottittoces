@@ -2,6 +2,7 @@
 {
     using System;
     using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web.Http;
@@ -242,6 +243,11 @@
             ad.Text = model.Text;
             if (model.ChangeImage)
             {
+                if (!this.ValidateImageSize(model.ImageDataURL))
+                {
+                    return this.BadRequest(string.Format("The image size should be less than {0}kb!", ImageKilobytesLimit));
+                }
+
                 ad.ImageDataURL = model.ImageDataURL;
             }
             if (model.OwnerUserName != null)
@@ -377,6 +383,24 @@
                     users = usersToReturn
                 }
             );
+        }
+
+        // GET api/Admin/Users/id
+        [HttpGet]
+        [Route("Users/{id}")]
+        public IHttpActionResult GetUserProfileById(string id)
+        {
+            var user = this.Data.Users
+                .All()
+                .Include(x => x.Town)
+                .Include(x => x.Roles)
+                .FirstOrDefault(x => x.Id == id);
+            if (user == null)
+            {
+                return this.BadRequest(string.Format("User # {0} not found: ", id));
+            }
+
+            return this.Ok(user);
         }
 
         // PUT api/Admin/User/{username}
@@ -660,7 +684,14 @@
 
             this.Data.Categories.Delete(category);
 
-            this.Data.Categories.SaveChanges();
+            try
+            {
+                this.Data.Categories.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                return this.BadRequest("You Can not delete category with advertisements!");
+            }
 
             return this.Ok(
                new
@@ -821,7 +852,16 @@
             }
 
             this.Data.Towns.Delete(town);
-            this.Data.Towns.SaveChanges();
+
+
+            try
+            {
+                this.Data.Towns.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                return this.BadRequest("You can not delete a town that is used by users!");
+            }
 
             return this.Ok(
                new

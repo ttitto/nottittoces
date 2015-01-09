@@ -149,6 +149,11 @@
                 return this.BadRequest(this.ModelState);
             }
 
+            if (!this.ValidateImageSize(model.ImageDataURL))
+            {
+                return this.BadRequest(string.Format("The image size should be less than {0}kb!", ImageKilobytesLimit));
+            }
+
             // Validate the current user exists in the database
             var currentUserId = User.Identity.GetUserId();
             var currentUser = this.Data.Users.All().FirstOrDefault(x => x.Id == currentUserId);
@@ -346,6 +351,11 @@
                 return this.BadRequest("Advertisement #" + id + " not found!");
             }
 
+            if (!this.ValidateImageSize(model.ImageDataURL))
+            {
+                return this.BadRequest(string.Format("The image size should be less than {0}kb!", ImageKilobytesLimit));
+            }
+
             // Validate the current user ownership over the ad
             var currentUserId = User.Identity.GetUserId();
             if (ad.OwnerId != currentUserId)
@@ -486,6 +496,12 @@
                 return this.BadRequest("Edit profile for user 'admin' is not allowed!");
             }
 
+            var hasEmailTaken = this.Data.Users.All().Any(x => x.Email == model.Email);
+            if (hasEmailTaken)
+            {
+                return this.BadRequest("Invalid email. The email is already taken!");
+            }
+
             currentUser.Name = model.Name;
             currentUser.Email = model.Email;
             currentUser.PhoneNumber = model.PhoneNumber;
@@ -497,8 +513,7 @@
                 new
                 {
                     message = "User profile edited successfully.",
-                }
-            );
+                });
         }
 
         protected override void Dispose(bool disposing)

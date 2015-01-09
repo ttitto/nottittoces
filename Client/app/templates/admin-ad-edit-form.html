@@ -1,0 +1,110 @@
+<form data-ng-controller="EditAdminAdController"
+      class="form-horizontal col-md-offset-1 col-md-9 col-sm-offset-1 col-sm-9 col-xs-12"
+      id="admin-ad-edit-form"
+      name="adminAdEditForm">
+    <fieldset>
+        <legend>Edit Ad</legend>
+        <div class="container-fluid col-md-12 col-sm-12 col-xs-12 clearfix">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <div class="form-group">
+                        <label class="col-md-2" for="ad-title">Title: </label>
+                        <input type="text" data-ng-model="ad.title" required="required" id="ad-title"
+                               class="form-control col-md-10"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="ad-text">Text: </label>
+                        <textarea class="form-control col-md-10" required="required" data-ng-model="ad.text"
+                                  name="adTextArea" id="ad-text"
+                                  cols="40" rows="5">
+
+                        </textarea>
+                    </div>
+                </div>
+                <div class="ad-img-container col-md-4 col-sm-4 col-xs-12">
+                    <img src="" class="image-box" alt="ad image" data-ng-src="{{ad.imageDataUrl}}"/>
+                </div>
+                <a href data-ng-click="deleteImageUrl(ad)" class="btn form-btn">Delete image</a>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+
+                    <label class="col-md-2">Image: </label>
+
+                    <div class="" browse preview=".image-box"/>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-5 col-sm-5 col-xs-5">
+                    <label class="col-md-2" for="ad-username">Username: </label>
+                    <input type="text" data-ng-model="ad.ownerUsername" required="required" id="ad-username"
+                           class="form-control col-md-5"/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5 col-sm-5 col-xs-5">
+                    <div class="form-group">
+                        <label class="col-md-2" for="towns-select">Town: </label>
+                        <select towns-select required="required" class="form-control col-md-10" name="townsSelect"
+                                id="towns-select"
+                                data-ng-model="ad.townId"></select>
+                    </div>
+                </div>
+
+                <div class="col-md-5 col-sm-5 col-xs-5 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+                    <div class="form-group">
+                        <label class="col-md-2" for="categories-select">Category: </label>
+                        <select categories-select required="required" name="categoriesSelect"
+                                class="form-control col-md-10"
+                                id="categories-select"
+                                data-ng-model="ad.categoryId"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 col-sm-5 col-xs-5">
+                    <div class="form-group">
+                        <label class="col-md-2" for="ad-date">Date: </label>
+                        <input type="date" id="ad-date" class="form-control col-md-10" name="adDatepicker"
+                               data-ng-model="ad.date"/>
+
+                    </div>
+                </div>
+
+                <div class="col-md-5 col-sm-5 col-xs-5 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+                    <div class="form-group">
+                        <label class="col-md-2" for="statuses-select">Status: </label>
+                        <select required="required" name="statusSelect"
+                                class="form-control col-md-10"
+                                id="statuses-select"
+                                data-ng-model="ad.status">
+                            <option value="null" selected="selected">None</option>
+                            <option value="Inactive">Inactive</option>
+                            <option value="WaitingApproval">Waiting Approval</option>
+                            <option value="Published">Published</option>
+                            <option value="Rejected">Rejected</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+            </div>
+
+
+            <div class="form-group pull-left col-md-12 col-sm-12 col-xs-12">
+                <div>
+                    <button data-ng-click="editAd(ad, adminAdEditForm)"
+                            data-ng-disabled="adminAdEditForm.$invalid"
+                            class="btn form-btn col-md-4">Edit
+                    </button>
+                    <a href="#/admin/home" class="btn form-btn col-md-4 col-md-offset-1">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>

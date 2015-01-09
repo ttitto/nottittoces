@@ -20,7 +20,9 @@ adsApp.factory('AdsResource', ['$resource', 'baseUrl', 'pageSize', 'authorizatio
             adminAdsResource = $resource(adminAdsUrl, null, {
                 'getAdminAds': {method: 'GET', headers: headers},
                 'rejectAd': {url: adminAdsUrl + '/reject/:id', method: 'PUT', params: {id: '@id'}, headers: headers},
-                'approveAd': {url: adminAdsUrl + '/approve/:id', method: 'PUT', params: {id: '@id'}, headers: headers}
+                'approveAd': {url: adminAdsUrl + '/approve/:id', method: 'PUT', params: {id: '@id'}, headers: headers},
+                'getAdminAdById': {url: adminAdsUrl + '/:id', method: 'GET', headers: headers },
+                'editAdminAd': {url: adminAdsUrl + '/:id', method: 'PUT', params: {id: '@id'}, headers: headers}
             });
 
         return {
@@ -56,6 +58,12 @@ adsApp.factory('AdsResource', ['$resource', 'baseUrl', 'pageSize', 'authorizatio
             },
             approveAd: function approveAd(ad) {
                 return adminAdsResource.approveAd({id: ad.id}).$promise;
+            },
+            getAdminAdById: function getAdminAdById(id) {
+                return adminAdsResource.getAdminAdById({id: id}).$promise;
+            },
+            editAdminAd: function editAdminAd(ad) {
+                return adminAdsResource.editAdminAd(ad).$promise;
             }
         }
     }])

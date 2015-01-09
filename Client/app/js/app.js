@@ -65,6 +65,11 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
                 controller: 'AdminAdsController',
                 resolve: routePermissions.isAdmin
             })
+            .when('/admin/ads/edit/:id',{
+                templateUrl:'app/templates/admin-ad-edit-form.html',
+                controller: 'EditAdminAdController',
+                resolve: routePermissions.isAdmin
+            })
             .when('/unauthorized', {
                 template: '<div><p>Your request was rejected. You might not be authorized to view this content. Please log in!</p></div>'
             })

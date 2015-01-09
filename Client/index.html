@@ -34,6 +34,10 @@
 
         <h2 data-ng-if="location.path()=='/admin/home'" class="navbar navbar-text">Ads Administration - Ads</h2>
 
+        <h2 data-ng-if="isAdminAdEdit()" class="navbar navbar-text">Ads Administration - Edit Ad</h2>
+
+        <h2 data-ng-if="isAdminAdDelete()" class="navbar navbar-text">Ads Administration - Delete Ad</h2>
+
         <div data-ng-if="authorization.isLogged()" class="nav navbar-nav pull-right">
             <ul>
                 <li class="navbar-text navbar">
@@ -83,6 +87,7 @@
 <script src="app/js/controllers/DeleteUserAdController.js" type="text/javascript"></script>
 <script src="app/js/controllers/EditUserProfileController.js" type="text/javascript"></script>
 <script src="app/js/controllers/AdminAdsController.js" type="text/javascript"></script>
+<script src="app/js/controllers/EditAdminAdController.js" type="text/javascript"></script>
 <script src="app/js/services/CategoriesResource.js" type="text/javascript"></script>
 <script src="app/js/services/TownsResource.js" type="text/javascript"></script>
 <script src="app/js/services/AdsResource.js" type="text/javascript"></script>

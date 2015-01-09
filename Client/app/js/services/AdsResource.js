@@ -22,7 +22,8 @@ adsApp.factory('AdsResource', ['$resource', 'baseUrl', 'pageSize', 'authorizatio
                 'rejectAd': {url: adminAdsUrl + '/reject/:id', method: 'PUT', params: {id: '@id'}, headers: headers},
                 'approveAd': {url: adminAdsUrl + '/approve/:id', method: 'PUT', params: {id: '@id'}, headers: headers},
                 'getAdminAdById': {url: adminAdsUrl + '/:id', method: 'GET', headers: headers },
-                'editAdminAd': {url: adminAdsUrl + '/:id', method: 'PUT', params: {id: '@id'}, headers: headers}
+                'editAdminAd': {url: adminAdsUrl + '/:id', method: 'PUT', params: {id: '@id'}, headers: headers},
+                'deleteAdminAd': {url: adminAdsUrl + '/:id', method: 'DELETE', params: {id: '@id'}, headers: headers}
             });
 
         return {
@@ -64,6 +65,9 @@ adsApp.factory('AdsResource', ['$resource', 'baseUrl', 'pageSize', 'authorizatio
             },
             editAdminAd: function editAdminAd(ad) {
                 return adminAdsResource.editAdminAd(ad).$promise;
+            },
+            deleteAdminAd: function (ad) {
+                return adminAdsResource.deleteAdminAd({id: ad.id}).$promise;
             }
         }
     }])

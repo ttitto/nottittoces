@@ -65,9 +65,14 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
                 controller: 'AdminAdsController',
                 resolve: routePermissions.isAdmin
             })
-            .when('/admin/ads/edit/:id',{
-                templateUrl:'app/templates/admin-ad-edit-form.html',
+            .when('/admin/ads/edit/:id', {
+                templateUrl: 'app/templates/admin-ad-edit-form.html',
                 controller: 'EditAdminAdController',
+                resolve: routePermissions.isAdmin
+            })
+            .when('/admin/ads/delete/:id', {
+                templateUrl: 'app/templates/admin-confirm-delete-ad.html',
+                controller: 'DeleteAdminAdController',
                 resolve: routePermissions.isAdmin
             })
             .when('/unauthorized', {

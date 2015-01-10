@@ -233,6 +233,11 @@ form {
     color: beige;
 }
 
+.btn.ligth{
+    background-color: beige;
+    color: saddlebrown;
+}
+
 /*BROWSE BUTTONS*/
 .fileUpload {
     position: relative;

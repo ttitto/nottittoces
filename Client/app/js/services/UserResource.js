@@ -1,3 +1,5 @@
+"use strict";
+
 adsApp.service('UserResource', ['$resource', 'baseUrl', 'authorization',
     function ($resource, baseUrl, authorization) {
         var userProfileUrl = baseUrl + '/user/profile',

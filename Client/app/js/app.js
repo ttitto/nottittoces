@@ -95,6 +95,16 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
                 controller: 'AdminListCategoriesController',
                 resolve: routePermissions.isAdmin
             })
+            .when('/admin/categories/create', {
+                templateUrl: 'app/templates/create-category-form.html',
+                controller: 'AdminCreateCategoryController',
+                resolve: routePermissions.isAdmin
+            })
+            .when('/admin/categories/edit/:id', {
+                templateUrl: 'app/templates/edit-category-form.html',
+                controller: 'AdminEditCategoryController',
+                resolve: routePermissions.isAdmin
+            })
             .when('/unauthorized', {
                 template: '<div><p>Your request was rejected. You might not be authorized to view this content. <br>Please log in!</p></div>'
             })

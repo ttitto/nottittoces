@@ -1,0 +1,27 @@
+<form data-ng-controller="AdminEditCategoryController"
+      class="form-horizontal col-md-offset-2 col-md-5 col-sm-offset-0 col-sm-12 col-xs-12" id="edit-category-form"
+      name="editCategoryForm">
+    <fieldset>
+        <legend>Edit Category</legend>
+        <div class="container-fluid col-md-12 col-sm-12 col-xs-12 clearfix">
+            <div class="form-group col-md-12 col-sm-6 col-xs-12 pull-left">
+                <label for="input-category" class="control-label pull-left">Category</label>
+
+                <div>
+                    <input type="text" data-ng-model="category.name" required="required" class="form-control"
+                           id="input-category" placeholder="Category name">
+                </div>
+            </div>
+
+            <div class="form-group pull-left col-md-12">
+                <div>
+                    <button data-ng-click="editCategory(category, editCategoryForm)"
+                            data-ng-disabled="editCategoryForm.$invalid"
+                            class="btn form-btn col-md-4">Edit
+                    </button>
+                    <a href="#/admin/categories/list" class="btn form-btn">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>

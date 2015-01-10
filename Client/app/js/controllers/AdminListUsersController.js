@@ -18,4 +18,23 @@ adsApp.controller('AdminListUsersController', ['$scope', 'messaging', 'UserResou
         };
 
         $scope.getListedItems($scope.requestParams);
+
+        $scope.sortBy = function sortBy(sortingParam) {
+            var currentSort = $scope.requestParams.sortBy;
+            if (currentSort) {
+                if (currentSort.indexOf(sortingParam) > -1) {
+                    if (currentSort[0] == '-') {
+                        $scope.requestParams.sortBy = sortingParam;
+                    } else {
+                        $scope.requestParams.sortBy = '-' + sortingParam;
+                    }
+                } else {
+                    $scope.requestParams.sortBy = sortingParam;
+                }
+            } else {
+                $scope.requestParams.sortBy = sortingParam;
+            }
+
+            $scope.getListedItems($scope.requestParams);
+        }
     }]);

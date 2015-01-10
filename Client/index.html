@@ -38,6 +38,8 @@
 
         <h2 data-ng-if="isAdminAdDelete()" class="navbar navbar-text">Ads Administration - Delete Ad</h2>
 
+        <h2 data-ng-if="location.path()=='/admin/users/list'" class="navbar navbar-text">Ads Administration - Users</h2>
+
         <div data-ng-if="authorization.isLogged()" class="nav navbar-nav pull-right">
             <ul>
                 <li class="navbar-text navbar">

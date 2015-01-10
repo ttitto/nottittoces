@@ -246,3 +246,15 @@ form {
     opacity: 0;
     filter: alpha(opacity=0);
 }
+
+/*TABLES*/
+table {
+    background-color: beige;
+    border-radius: 5px;
+    border-spacing: 2px;
+    border-collapse: separate;
+}
+
+table th {
+    cursor: pointer;
+}

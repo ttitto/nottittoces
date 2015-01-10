@@ -12,12 +12,9 @@ adsApp.service('UserResource', ['$resource', 'baseUrl', 'authorization',
                 'adminListUsers': {method: 'GET', headers: headers},
                 'adminGetUserById': {url: adminUsersUrl + '/:id', method: 'GET', headers: headers},
                 'adminEditProfile': {url: baseUrl + '/admin/user/:userName', params: {userName: '@userName'}, method: 'PUT', headers: headers},
-                'adminChangeUserPassword': {
-                    url: baseUrl + '/admin/setpassword',
-                    method: 'PUT',
-                    headers: headers}
+                'adminChangeUserPassword': {url: baseUrl + '/admin/setpassword', method: 'PUT', headers: headers},
+                'adminDeleteUser': {url: baseUrl + '/admin/user/:userName', method: 'DELETE', params: {userName: '@userName'}, headers: headers}
             });
-
 
         return {
             get: function () {
@@ -40,6 +37,9 @@ adsApp.service('UserResource', ['$resource', 'baseUrl', 'authorization',
             },
             adminChangeUserPassword: function adminChangeUserPassword(pass) {
                 return adminUsersResource.adminChangeUserPassword(pass).$promise;
+            },
+            adminDeleteUser: function adminDeleteUser(user) {
+                return adminUsersResource.adminDeleteUser(user).$promise;
             }
         }
     }]);

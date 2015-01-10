@@ -85,6 +85,11 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
                 controller: 'AdminEditProfileController',
                 resolve: routePermissions.isAdmin
             })
+            .when('/admin/users/delete/:id', {
+                templateUrl: 'app/templates/admin-confirm-delete-user.html',
+                controller: 'AdminDeleteUserController',
+                resolve: routePermissions.isAdmin
+            })
             .when('/unauthorized', {
                 template: '<div><p>Your request was rejected. You might not be authorized to view this content. <br>Please log in!</p></div>'
             })

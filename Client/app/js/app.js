@@ -80,8 +80,13 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
                 controller: 'AdminListUsersController',
                 resolve: routePermissions.isAdmin
             })
+            .when('/admin/users/edit/:id', {
+                templateUrl: 'app/templates/admin-edit-profile.html',
+                controller: 'AdminEditProfileController',
+                resolve: routePermissions.isAdmin
+            })
             .when('/unauthorized', {
-                template: '<div><p>Your request was rejected. You might not be authorized to view this content. Please log in!</p></div>'
+                template: '<div><p>Your request was rejected. You might not be authorized to view this content. <br>Please log in!</p></div>'
             })
             .otherwise({ redirectTo: '/' });
     }])
@@ -91,6 +96,7 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
         })
     })
     .constant('baseUrl', 'http://localhost:1337/api')
+//    .constant('baseUrl', 'http://softuni-ads.azurewebsites.net/api')
     .constant('pageSize', 3);
 
 // TODO: bug with live preview in editing ad

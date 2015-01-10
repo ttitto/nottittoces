@@ -1,6 +1,6 @@
 adsApp.controller('AdminListUsersController', ['$scope', 'messaging', 'UserResource',
     function ($scope, messaging, UserResource) {
-        $scope.requestParams = {startPage: 1};
+        $scope.requestParams = {startPage: 1, sortBy: 'UserName'};
         $scope.users = [];
 
         $scope.getListedItems = function (requestParams) {

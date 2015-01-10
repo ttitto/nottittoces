@@ -228,6 +228,11 @@ form {
     margin-bottom: 5px;
 }
 
+.btn-sm {
+    background-color: saddlebrown;
+    color: beige;
+}
+
 /*BROWSE BUTTONS*/
 .fileUpload {
     position: relative;
@@ -257,4 +262,5 @@ table {
 
 table th {
     cursor: pointer;
+    text-align: center;
 }

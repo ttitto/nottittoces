@@ -9,7 +9,13 @@ adsApp.service('UserResource', ['$resource', 'baseUrl', 'authorization',
                 'changeUserPassword': {url: baseUrl + '/user/changePassword', method: 'PUT', headers: headers}
             }),
             adminUsersResource = $resource(adminUsersUrl, null, {
-                'adminListUsers': {method: 'GET', headers: headers}
+                'adminListUsers': {method: 'GET', headers: headers},
+                'adminGetUserById': {url: adminUsersUrl + '/:id', method: 'GET', headers: headers},
+                'adminEditProfile': {url: baseUrl + '/admin/user/:userName', params: {userName: '@userName'}, method: 'PUT', headers: headers},
+                'adminChangeUserPassword': {
+                    url: baseUrl + '/admin/setpassword',
+                    method: 'PUT',
+                    headers: headers}
             });
 
 
@@ -25,6 +31,15 @@ adsApp.service('UserResource', ['$resource', 'baseUrl', 'authorization',
             },
             adminListUsers: function adminListUsers(requestParams) {
                 return adminUsersResource.adminListUsers(requestParams).$promise;
+            },
+            adminGetUserById: function adminGetUserById(id) {
+                return adminUsersResource.adminGetUserById({id: id}).$promise;
+            },
+            adminEditProfile: function adminEditProfile(user) {
+                return adminUsersResource.adminEditProfile(user).$promise;
+            },
+            adminChangeUserPassword: function adminChangeUserPassword(pass) {
+                return adminUsersResource.adminChangeUserPassword(pass).$promise;
             }
         }
     }]);

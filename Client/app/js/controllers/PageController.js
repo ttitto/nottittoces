@@ -3,10 +3,9 @@ adsApp.controller('PageController', ['$scope', 'authorization', 'authentication'
         $scope.authorization = authorization;
         $scope.authentication = authentication;
         $scope.location = $location;
-        $scope.isUserAdDelete = function () {
-            return /^\/user\/ads\/delete.*$/.test($location.path())
-        };
-        $scope.isUserAdEdit = function () {
-            return /^\/user\/ads\/edit.*$/.test($location.path())
-        };
+
+        $scope.isNeededLocation = function (pattern) {
+            pattern = new RegExp(pattern);
+            return pattern.test($location.path());
+        }
     }]);

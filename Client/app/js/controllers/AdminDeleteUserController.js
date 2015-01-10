@@ -1,5 +1,5 @@
-adsApp.controller('AdminDeleteUserController', ['$scope', 'messaging', 'UserResource', '$routeParams',
-    function ($scope, messaging, UserResource, $routeParams) {
+adsApp.controller('AdminDeleteUserController', ['$scope', 'messaging', 'UserResource', '$routeParams', '$location',
+    function ($scope, messaging, UserResource, $routeParams, $location) {
         UserResource.adminGetUserById($routeParams.id)
             .then(
             function adminGetUserByIdSuccess(adminGetUserByIdData) {
@@ -15,6 +15,7 @@ adsApp.controller('AdminDeleteUserController', ['$scope', 'messaging', 'UserReso
                 .then(
                 function adminDeleteUserSuccess(adminDeleteUserData) {
                     messaging.successMessage('The user and all its advertisements were deleted successfully.');
+                    $location.path('/admin/users/list');
                 },
                 function adminDeleteUserError(adminDeleteUserErr) {
                     console.log(adminDeleteUserErr);

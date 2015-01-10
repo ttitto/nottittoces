@@ -1,5 +1,5 @@
 <form data-ng-controller="AdminDeleteUserController"
-      class="form-horizontal col-md-offset-1 col-md-8 col-sm-offset-1 col-sm-8 col-xs-12"
+      class="form-horizontal col-md-offset-1 col-md-6 col-sm-offset-1 col-sm-6 col-xs-12"
       id="admin-confirm-delete-user-form"
       name="adminConfirmDeleteUserForm">
     <fieldset>
@@ -17,10 +17,30 @@
                 <label class="col-md-3 col-sm-3 col-xs-3 control-label">Email:</label>
 
                 <p class="on-background form-control col-md-6 col-sm-6 col-xs-9 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
-                    {{user.email}}</p>
+                    <a href="mailto:{{user.email}}">{{user.email}}</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-10 col-sm-10 col-xs-12">
+                <label class="col-md-3 col-sm-3 col-xs-3 control-label">Phone:</label>
+
+                <p class="on-background form-control col-md-6 col-sm-6 col-xs-9 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+                    {{user.phoneNumber}}</p>
             </div>
         </div>
 
+        <div class="row">
+            <div class="form-group col-md-10 col-sm-10 col-xs-12">
+                <label class="col-md-3 col-sm-3 col-xs-3 control-label">Town:</label>
+
+                <p class="on-background form-control col-md-6 col-sm-6 col-xs-9 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+                    {{user.town.name}}</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <p>Deleting the user will also delete all ads, created by this user!</p>
+        </div>
         <div class="form-group pull-left col-md-12 col-sm-12 col-xs-12">
             <div>
                 <button data-ng-click="adminDeleteUser(user)" class="btn form-btn col-md-offset-3 col-md-4">Delete

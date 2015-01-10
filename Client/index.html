@@ -53,6 +53,12 @@
         <h2 data-ng-if="isNeededLocation('^\/admin\/categories\/create.*$')"
             class="navbar navbar-text">Ads Administration - Create Category</h2>
 
+        <h2 data-ng-if="isNeededLocation('^\/admin\/categories\/edit.*$')"
+            class="navbar navbar-text">Ads Administration - Edit Category</h2>
+
+        <h2 data-ng-if="isNeededLocation('^\/admin\/categories\/delete.*$')"
+            class="navbar navbar-text">Ads Administration - Delete Category</h2>
+
         <div data-ng-if="authorization.isLogged()" class="nav navbar-nav pull-right">
             <ul>
                 <li class="navbar-text navbar">

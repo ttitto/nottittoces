@@ -11,7 +11,8 @@ adsApp.factory('CategoriesResource', ['$resource', 'baseUrl', 'authorization',
             adminResource = $resource(adminUrl, null, {
                 'adminListCategories': {method: 'GET', headers: headers},
                 'adminCreateCategory': {method: 'POST', headers: headers},
-                'adminEditCategory': {method: 'PUT', params: {id: '@id'}, headers: headers}
+                'adminEditCategory': {method: 'PUT', params: {id: '@id'}, headers: headers},
+                'adminDeleteCategory': {method: 'DELETE', headers: headers}
             });
 
         return {
@@ -29,6 +30,9 @@ adsApp.factory('CategoriesResource', ['$resource', 'baseUrl', 'authorization',
             },
             adminEditCategory: function adminCreateCategory(category) {
                 return adminResource.adminEditCategory(category).$promise;
+            },
+            adminDeleteCategory: function adminDeleteCategory(category) {
+                return adminResource.adminDeleteCategory({id: category.id}).$promise;
             }
         }
     }]);

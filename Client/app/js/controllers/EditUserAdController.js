@@ -16,6 +16,8 @@ adsApp.controller('EditUserAdController', ['$scope', 'AdsResource', 'messaging',
             }
         );
         $scope.editAd = function (ad, adEditForm) {
+            angular.extend(ad, {changeImage: true});
+
             if (adEditForm.$valid) {
                 AdsResource.editUserAd(ad)
                     .then(

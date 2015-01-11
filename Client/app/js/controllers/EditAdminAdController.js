@@ -19,6 +19,7 @@ adsApp.controller('EditAdminAdController', ['$scope', 'AdsResource', 'messaging'
         );
         $scope.editAd = function (ad, adEditForm) {
             if (adEditForm.$valid) {
+                angular.extend(ad, {changeImage: true});
                 AdsResource.editAdminAd(ad)
                     .then(
                     function adminAdEditSuccess() {

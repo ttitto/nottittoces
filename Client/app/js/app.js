@@ -144,5 +144,4 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
 //    .constant('baseUrl', 'http://softuni-ads.azurewebsites.net/api')
     .constant('pageSize', 3);
 
-// TODO: bug with live preview in editing ad
 

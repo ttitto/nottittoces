@@ -15,12 +15,7 @@ adsApp.controller('AdminEditCategoryController', ['$scope', 'messaging', 'Catego
 
         $scope.editCategory = function editCategory(category, editCategoryForm) {
             if (editCategoryForm.$valid) {
-
-                var categoryObj = {
-                    id: category.id,
-                    name: category.name
-                };
-                CategoriesResource.adminEditCategory(categoryObj)
+                CategoriesResource.adminEditCategory(category)
                     .then(
                     function editCategorySuccess(editCategoryData) {
                         messaging.successMessage('New category was edited successfully.');

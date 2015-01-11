@@ -32,7 +32,7 @@ adsApp.factory('CategoriesResource', ['$resource', 'baseUrl', 'authorization',
                 return adminResource.adminEditCategory(category).$promise;
             },
             adminDeleteCategory: function adminDeleteCategory(category) {
-                return adminResource.adminDeleteCategory({id: category.id}).$promise;
+                return adminResource.adminDeleteCategory({id: category}).$promise;
             }
         }
     }]);

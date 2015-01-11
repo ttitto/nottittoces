@@ -116,8 +116,8 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
                 resolve: routePermissions.isAdmin
             })
             .when('/admin/towns/create', {
-                templateUrl: 'app/templates/admin-create-towns.html',
-                controller: 'AdminCreateTownsController',
+                templateUrl: 'app/templates/create-town-form.html',
+                controller: 'AdminCreateTownController',
                 resolve: routePermissions.isAdmin
             })
             .when('/unauthorized', {

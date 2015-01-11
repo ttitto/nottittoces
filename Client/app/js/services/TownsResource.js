@@ -20,10 +20,10 @@ adsApp.factory('TownsResource', ['$resource', 'baseUrl', 'authorization',
             getById: function getById(id) {
                 return townsResource.getById({id: id}).$promise;
             },
-            adminListCategories: function adminListCategories(requestParams) {
+            adminListTowns: function adminListTowns(requestParams) {
                 return adminResource.adminListTowns(requestParams).$promise;
             },
-            adminCreateCategory: function adminCreateCategory(town) {
+            adminCreateTown: function adminCreateTown(town) {
                 return adminResource.adminCreateTown(town).$promise;
             }
         }

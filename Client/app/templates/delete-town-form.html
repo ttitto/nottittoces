@@ -1,0 +1,27 @@
+<form data-ng-controller="AdminDeleteTownController"
+      class="form-horizontal col-md-offset-2 col-md-5 col-sm-offset-0 col-sm-12 col-xs-12" id="delete-town-form"
+      name="deleteTownForm">
+    <fieldset>
+        <legend>Confirm Delete Town?</legend>
+        <div class="container-fluid col-md-12 col-sm-12 col-xs-12 clearfix">
+            <div class="form-group col-md-12 col-sm-6 col-xs-12 pull-left">
+                <label for="input-town" class="control-label pull-left">Town</label>
+
+                <div>
+                    <input type="text" data-ng-model="town.name" required="required" class="form-control"
+                           id="input-town" placeholder="Town name">
+                </div>
+            </div>
+
+            <div class="form-group pull-left col-md-12">
+                <div>
+                    <button data-ng-click="deleteTown(town, deleteTownForm)"
+                            data-ng-disabled="deleteTownForm.$invalid"
+                            class="btn form-btn col-md-4">Delete
+                    </button>
+                    <a href="#/admin/towns/list" class="btn form-btn">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>

@@ -17,48 +17,60 @@
         <h2 data-ng-cloak data-ng-if="location.path()=='/' || location.path()=='/user/home'" class="navbar navbar-text">
             Ads - Home</h2>
 
-        <h2 data-ng-if="location.path()=='/login'" class="navbar navbar-text">Ads - Login</h2>
+        <h2 data-ng-cloak data-ng-if="location.path()=='/login'" class="navbar navbar-text">Ads - Login</h2>
 
-        <h2 data-ng-if="location.path()=='/register'" class="navbar navbar-text">Ads - Registration</h2>
+        <h2 data-ng-cloak data-ng-if="location.path()=='/register'" class="navbar navbar-text">Ads - Registration</h2>
 
-        <h2 data-ng-if="location.path()=='/user/ads'" class="navbar navbar-text">Ads - My Ads</h2>
+        <h2 data-ng-cloak data-ng-if="location.path()=='/user/ads'" class="navbar navbar-text">Ads - My Ads</h2>
 
-        <h2 data-ng-if="location.path()=='/user/ads/publish'" class="navbar navbar-text">Ads - Publish New Ad</h2>
+        <h2 data-ng-cloak data-ng-if="location.path()=='/user/ads/publish'" class="navbar navbar-text">Ads - Publish New Ad</h2>
 
-        <h2 data-ng-if="isNeededLocation('^\/user\/ads\/delete.*$')" class="navbar navbar-text">Ads - Delete Ad</h2>
+        <h2 data-ng-cloak data-ng-if="isNeededLocation('^\/user\/ads\/delete.*$')" class="navbar navbar-text">Ads - Delete Ad</h2>
 
-        <h2 data-ng-if="isNeededLocation('^\/user\/ads\/edit.*$')" class="navbar navbar-text">Ads - Edit Ad</h2>
+        <h2 data-ng-cloak data-ng-if="isNeededLocation('^\/user\/ads\/edit.*$')" class="navbar navbar-text">Ads - Edit Ad</h2>
 
-        <h2 data-ng-if="location.path()=='/user/profile'" class="navbar navbar-text">Ads - Edit User Profile</h2>
+        <h2 data-ng-cloak data-ng-if="location.path()=='/user/profile'" class="navbar navbar-text">Ads - Edit User Profile</h2>
 
-        <h2 data-ng-if="location.path()=='/admin/home'" class="navbar navbar-text">Ads Administration - Ads</h2>
+        <h2 data-ng-cloak data-ng-if="location.path()=='/admin/home'" class="navbar navbar-text">Ads Administration - Ads</h2>
 
-        <h2 data-ng-if="isAdminAdEdit()" class="navbar navbar-text">Ads Administration - Edit Ad</h2>
+        <h2 data-ng-cloak data-ng-if="isAdminAdEdit()" class="navbar navbar-text">Ads Administration - Edit Ad</h2>
 
-        <h2 data-ng-if="isAdminAdDelete()" class="navbar navbar-text">Ads Administration - Delete Ad</h2>
+        <h2 data-ng-cloak data-ng-if="isAdminAdDelete()" class="navbar navbar-text">Ads Administration - Delete Ad</h2>
 
-        <h2 data-ng-if="location.path()=='/admin/users/list'"
+        <h2 data-ng-cloak data-ng-if="location.path()=='/admin/users/list'"
             class="navbar navbar-text">Ads Administration - Users</h2>
 
-        <h2 data-ng-if="isNeededLocation('^\/admin\/users\/edit.*$')"
+        <h2 data-ng-cloak data-ng-if="isNeededLocation('^\/admin\/users\/edit.*$')"
             class="navbar navbar-text">Ads Administration - Edit User Profile</h2>
 
-        <h2 data-ng-if="isNeededLocation('^\/admin\/users\/delete.*$')"
+        <h2 data-ng-cloak data-ng-if="isNeededLocation('^\/admin\/users\/delete.*$')"
             class="navbar navbar-text">Ads Administration - Delete User</h2>
 
-        <h2 data-ng-if="isNeededLocation('^\/admin\/categories\/list.*$')"
+        <h2 data-ng-cloak data-ng-if="isNeededLocation('^\/admin\/categories\/list.*$')"
             class="navbar navbar-text">Ads Administration - Categories</h2>
 
-        <h2 data-ng-if="isNeededLocation('^\/admin\/categories\/create.*$')"
+        <h2 data-ng-cloak data-ng-if="isNeededLocation('^\/admin\/categories\/create.*$')"
             class="navbar navbar-text">Ads Administration - Create Category</h2>
 
-        <h2 data-ng-if="isNeededLocation('^\/admin\/categories\/edit.*$')"
+        <h2 data-ng-cloak data-ng-if="isNeededLocation('^\/admin\/categories\/edit.*$')"
             class="navbar navbar-text">Ads Administration - Edit Category</h2>
 
-        <h2 data-ng-if="isNeededLocation('^\/admin\/categories\/delete.*$')"
+        <h2 data-ng-cloak data-ng-if="isNeededLocation('^\/admin\/categories\/delete.*$')"
             class="navbar navbar-text">Ads Administration - Delete Category</h2>
 
-        <div data-ng-if="authorization.isLogged()" class="nav navbar-nav pull-right">
+        <h2 data-ng-cloak data-ng-if="isNeededLocation('^\/admin\/towns\/list.*$')"
+            class="navbar navbar-text">Ads Administration - Towns</h2>
+
+        <h2 data-ng-cloak data-ng-if="isNeededLocation('^\/admin\/towns\/create.*$')"
+            class="navbar navbar-text">Ads Administration - Create Town</h2>
+
+        <h2 data-ng-cloak data-ng-if="isNeededLocation('^\/admin\/towns\/edit.*$')"
+            class="navbar navbar-text">Ads Administration - Edit Town</h2>
+
+        <h2 data-ng-cloak data-ng-if="isNeededLocation('^\/admin\/towns\/delete.*$')"
+            class="navbar navbar-text">Ads Administration - Delete Town</h2>
+
+        <div data-ng-cloak data-ng-if="authorization.isLogged()" class="nav navbar-nav pull-right">
             <ul>
                 <li class="navbar-text navbar">
                     <span class="user-greeting">{{authorization.getLocalUser().username}}</span>

@@ -1,3 +1,8 @@
+/*NG-CLOAK*/
+[ng\:cloak], [data-ng-cloak], .ng-cloak {
+    display: none;
+}
+
 /*INITIAL RESET*/
 html, body {
     margin: 0;
@@ -233,7 +238,7 @@ form {
     color: beige;
 }
 
-.btn.ligth{
+.btn.ligth {
     background-color: beige;
     color: saddlebrown;
 }

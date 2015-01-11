@@ -15,14 +15,19 @@ adsApp.controller('AdminEditCategoryController', ['$scope', 'messaging', 'Catego
 
         $scope.editCategory = function editCategory(category, editCategoryForm) {
             if (editCategoryForm.$valid) {
-                CategoriesResource.adminEditCategory(category)
+
+                var categoryObj = {
+                    id: category.id,
+                    name: category.name
+                };
+                CategoriesResource.adminEditCategory(categoryObj)
                     .then(
                     function editCategorySuccess(editCategoryData) {
                         messaging.successMessage('New category was edited successfully.');
                         $location.path('/admin/categories/list');
                     },
                     function editCategoryError(editCategoryErr) {
-                        messaging.errorMessage(' The selected category couldn\'t be edited.');
+                        messaging.errorMessage('The selected category couldn\'t be edited.');
                         console.log(editCategoryErr);
                     }
                 )

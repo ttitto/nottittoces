@@ -10,7 +10,9 @@ adsApp.factory('TownsResource', ['$resource', 'baseUrl', 'authorization',
             }),
             adminResource = $resource(adminUrl, null, {
                 'adminListTowns': {method: 'GET', headers: headers},
-                'adminCreateTown': {method: 'POST', headers: headers}
+                'adminCreateTown': {method: 'POST', headers: headers},
+                'adminEditTown': {method: 'PUT', params: {id: '@id'}, headers: headers},
+                'adminDeleteTown': {method: 'DELETE', headers: headers}
             });
 
         return {
@@ -25,6 +27,12 @@ adsApp.factory('TownsResource', ['$resource', 'baseUrl', 'authorization',
             },
             adminCreateTown: function adminCreateTown(town) {
                 return adminResource.adminCreateTown(town).$promise;
+            },
+            adminEditTown: function adminCreateTown(town) {
+                return adminResource.adminEditTown(town).$promise;
+            },
+            adminDeleteTown: function adminDeleteTown(town) {
+                return adminResource.adminDeleteTown({name: town}).$promise;
             }
         }
     }]);

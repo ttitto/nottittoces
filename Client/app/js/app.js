@@ -110,6 +110,11 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
                 controller: 'AdminDeleteCategoryController',
                 resolve: routePermissions.isAdmin
             })
+            .when('/admin/towns/list', {
+                templateUrl: 'app/templates/admin-list-towns.html',
+                controller: 'AdminListTownsController',
+                resolve: routePermissions.isAdmin
+            })
             .when('/unauthorized', {
                 template: '<div><p>Your request was rejected. You might not be authorized to view this content. <br>Please log in!</p></div>'
             })

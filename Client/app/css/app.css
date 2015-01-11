@@ -275,3 +275,10 @@ table th {
     cursor: pointer;
     text-align: center;
 }
+
+/*FOOTER*/
+.footer.navbar-fixed-bottom {
+    color: #9d9d9d;
+    background-color: black;
+    padding: 5px;
+}

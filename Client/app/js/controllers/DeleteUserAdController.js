@@ -1,5 +1,5 @@
-adsApp.controller('DeleteUserAdController', ['$scope', 'AdsResource', 'messaging', '$routeParams', 'CategoriesResource', 'TownsResource',
-    function ($scope, AdsResource, messaging, $routeParams, CategoriesResource, TownsResource) {
+adsApp.controller('DeleteUserAdController', ['$scope', 'AdsResource', 'messaging', '$routeParams', 'CategoriesResource', 'TownsResource', '$location',
+    function ($scope, AdsResource, messaging, $routeParams, CategoriesResource, TownsResource, $location) {
 
         AdsResource.getById($routeParams.id)
             .then(

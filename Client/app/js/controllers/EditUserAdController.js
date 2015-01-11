@@ -36,5 +36,6 @@ adsApp.controller('EditUserAdController', ['$scope', 'AdsResource', 'messaging',
 
         $scope.deleteImageUrl = function (ad) {
             $scope.getBase64(null);
+            $('#base64-string').val(null);
         }
     }]);
